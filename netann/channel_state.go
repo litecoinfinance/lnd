@@ -3,7 +3,7 @@ package netann
 import (
 	"time"
 
-	"github.com/btcsuite/btcd/wire"
+	"github.com/litecoinfinance/btcd/wire"
 )
 
 // ChanStatus is a type that enumerates the possible states a ChanStatusManager

@@ -5,7 +5,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/btcsuite/btcd/btcec"
+	"github.com/litecoinfinance/btcd/btcec"
 	"github.com/lightningnetwork/lnd/watchtower/wtdb"
 )
 

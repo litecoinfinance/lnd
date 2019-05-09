@@ -3,7 +3,7 @@ package lnwire
 import (
 	"io"
 
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
 )
 
 // QueryChannelRange is a message sent by a node in order to query the

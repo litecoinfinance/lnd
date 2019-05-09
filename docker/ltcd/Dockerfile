@@ -4,9 +4,9 @@ MAINTAINER Olaoluwa Osuntokun <lightning.engineering>
 
 # Grab and install the latest version of roasbeef's fork of ltcd and all
 # related dependencies.
-WORKDIR $GOPATH/src/github.com/ltcsuite/ltcd
+WORKDIR $GOPATH/src/github.com/litecoinfinance/ltcd
 RUN apk add --no-cache --update alpine-sdk git
-RUN git clone https://github.com/ltcsuite/ltcd ./
+RUN git clone https://github.com/litecoinfinance/ltcd ./
 RUN GO111MODULE=on go install -v . ./cmd/...
 RUN GO111MODULE=on go install . ./cmd/ltcctl ./cmd/gencerts
 

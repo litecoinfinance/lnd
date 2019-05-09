@@ -3,8 +3,8 @@ package netann
 import (
 	"fmt"
 
-	"github.com/btcsuite/btcd/btcec"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/litecoinfinance/btcd/btcec"
+	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
 	"github.com/lightningnetwork/lnd/lnwallet"
 )
 

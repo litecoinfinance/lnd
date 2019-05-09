@@ -3,7 +3,7 @@ package autopilot_test
 import (
 	"testing"
 
-	"github.com/btcsuite/btcutil"
+	"github.com/litecoinfinance/btcutil"
 	"github.com/lightningnetwork/lnd/autopilot"
 )
 

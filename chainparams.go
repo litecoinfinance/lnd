@@ -1,13 +1,13 @@
 package lnd
 
 import (
-	"github.com/btcsuite/btcd/chaincfg"
-	bitcoinCfg "github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcd/chaincfg/chainhash"
-	bitcoinWire "github.com/btcsuite/btcd/wire"
+	"github.com/litecoinfinance/btcd/chaincfg"
+	bitcoinCfg "github.com/litecoinfinance/btcd/chaincfg"
+	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
+	bitcoinWire "github.com/litecoinfinance/btcd/wire"
 	"github.com/lightningnetwork/lnd/keychain"
-	litecoinCfg "github.com/ltcsuite/ltcd/chaincfg"
-	litecoinWire "github.com/ltcsuite/ltcd/wire"
+	litecoinCfg "github.com/litecoinfinance/ltcd/chaincfg"
+	litecoinWire "github.com/litecoinfinance/ltcd/wire"
 )
 
 // activeNetParams is a pointer to the parameters specific to the currently

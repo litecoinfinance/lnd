@@ -4,8 +4,8 @@ import (
 	"encoding/binary"
 	"io"
 
-	"github.com/btcsuite/btcd/btcec"
-	"github.com/lightningnetwork/lightning-onion"
+	"github.com/litecoinfinance/btcd/btcec"
+	"github.com/litecoinfinance/lightning-onion"
 	"github.com/lightningnetwork/lnd/lnwire"
 )
 

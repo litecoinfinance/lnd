@@ -4,8 +4,8 @@ import (
 	"encoding/binary"
 	"fmt"
 
-	"github.com/btcsuite/btcd/btcec"
-	sphinx "github.com/lightningnetwork/lightning-onion"
+	"github.com/litecoinfinance/btcd/btcec"
+	sphinx "github.com/litecoinfinance/lightning-onion"
 	"github.com/lightningnetwork/lnd/lnwire"
 )
 

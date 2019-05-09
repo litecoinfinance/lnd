@@ -3,7 +3,7 @@
 package routerrpc
 
 import (
-	"github.com/btcsuite/btcd/chaincfg"
+	"github.com/litecoinfinance/btcd/chaincfg"
 	"github.com/lightningnetwork/lnd/macaroons"
 	"github.com/lightningnetwork/lnd/routing"
 )
