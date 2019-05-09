@@ -5,7 +5,7 @@ package chainrpc
 import (
 	"fmt"
 
-	"github.com/lightningnetwork/lnd/lnrpc"
+	"github.com/litecoinfinance/lnd/lnrpc"
 )
 
 // createNewSubServer is a helper method that will create the new chain notifier

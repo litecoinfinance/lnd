@@ -3,8 +3,8 @@ package lookout
 import (
 	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
 	"github.com/litecoinfinance/btcd/wire"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
+	"github.com/litecoinfinance/lnd/chainntnfs"
+	"github.com/litecoinfinance/lnd/watchtower/wtdb"
 )
 
 // Service abstracts the lookout functionality, supporting the ability to start

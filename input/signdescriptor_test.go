@@ -8,7 +8,7 @@ import (
 	"github.com/litecoinfinance/btcd/btcec"
 	"github.com/litecoinfinance/btcd/txscript"
 	"github.com/litecoinfinance/btcd/wire"
-	"github.com/lightningnetwork/lnd/keychain"
+	"github.com/litecoinfinance/lnd/keychain"
 )
 
 func TestSignDescriptorSerialization(t *testing.T) {

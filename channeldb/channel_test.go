@@ -17,9 +17,9 @@ import (
 	"github.com/litecoinfinance/btcutil"
 	_ "github.com/litecoinfinance/btcwallet/walletdb/bdb"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/shachain"
+	"github.com/litecoinfinance/lnd/keychain"
+	"github.com/litecoinfinance/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/shachain"
 )
 
 var (

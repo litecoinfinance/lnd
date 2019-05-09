@@ -8,7 +8,7 @@ import (
 	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/coreos/bbolt"
-	"github.com/lightningnetwork/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/channeldb"
 )
 
 //	              Overview of Nursery Store Storage Hierarchy

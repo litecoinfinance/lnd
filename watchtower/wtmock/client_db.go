@@ -6,8 +6,8 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
+	"github.com/litecoinfinance/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/watchtower/wtdb"
 )
 
 type towerPK [33]byte

@@ -4,11 +4,11 @@ package invoicesrpc
 
 import (
 	"github.com/litecoinfinance/btcd/chaincfg"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/invoices"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/macaroons"
-	"github.com/lightningnetwork/lnd/netann"
+	"github.com/litecoinfinance/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/invoices"
+	"github.com/litecoinfinance/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/macaroons"
+	"github.com/litecoinfinance/lnd/netann"
 )
 
 // Config is the primary configuration struct for the invoices RPC server. It

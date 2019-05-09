@@ -11,8 +11,8 @@ import (
 	"github.com/litecoinfinance/btcd/btcec"
 	"github.com/litecoinfinance/btcutil"
 	"github.com/coreos/bbolt"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/lnwire"
 )
 
 var (

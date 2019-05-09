@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/coreos/bbolt"
-	"github.com/lightningnetwork/lnd/lntypes"
+	"github.com/litecoinfinance/lnd/lntypes"
 )
 
 var (

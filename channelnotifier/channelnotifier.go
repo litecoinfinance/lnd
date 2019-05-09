@@ -4,8 +4,8 @@ import (
 	"sync/atomic"
 
 	"github.com/litecoinfinance/btcd/wire"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/subscribe"
+	"github.com/litecoinfinance/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/subscribe"
 )
 
 // ChannelNotifier is a subsystem which all active, inactive, and closed channel

@@ -19,10 +19,10 @@ import (
 	"github.com/litecoinfinance/btcd/txscript"
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/litecoinfinance/btcutil"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/sweep"
+	"github.com/litecoinfinance/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/input"
+	"github.com/litecoinfinance/lnd/lnwallet"
+	"github.com/litecoinfinance/lnd/sweep"
 )
 
 var (

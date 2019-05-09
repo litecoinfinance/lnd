@@ -26,7 +26,7 @@ import (
 	_ "github.com/litecoinfinance/btcwallet/walletdb/bdb" // Required to register the boltdb walletdb implementation.
 
 	"github.com/litecoinfinance/neutrino"
-	"github.com/lightningnetwork/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/channeldb"
 )
 
 var (

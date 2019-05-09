@@ -7,8 +7,8 @@ import (
 
 	"github.com/litecoinfinance/btcd/btcec"
 	"github.com/litecoinfinance/btcd/wire"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/input"
+	"github.com/litecoinfinance/lnd/lnwire"
 )
 
 const (

@@ -12,7 +12,7 @@ import (
 	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
 	"github.com/litecoinfinance/btcutil"
 	"github.com/litecoinfinance/btcutil/bech32"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/lnwire"
 )
 
 const (

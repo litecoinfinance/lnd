@@ -9,8 +9,8 @@ import (
 
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/coreos/bbolt"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/lnwire"
 )
 
 // TestPkgFilterBruteForce tests the behavior of a pkg filter up to size 1000,

@@ -5,7 +5,7 @@ import (
 	"io"
 
 	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/lnwire"
 )
 
 // Init is the first message sent over the watchtower wire protocol, and

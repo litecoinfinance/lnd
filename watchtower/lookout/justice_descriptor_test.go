@@ -14,14 +14,14 @@ import (
 	"github.com/litecoinfinance/btcutil"
 	"github.com/litecoinfinance/btcutil/txsort"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/watchtower/blob"
-	"github.com/lightningnetwork/lnd/watchtower/lookout"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
-	"github.com/lightningnetwork/lnd/watchtower/wtmock"
-	"github.com/lightningnetwork/lnd/watchtower/wtpolicy"
+	"github.com/litecoinfinance/lnd/input"
+	"github.com/litecoinfinance/lnd/keychain"
+	"github.com/litecoinfinance/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/watchtower/blob"
+	"github.com/litecoinfinance/lnd/watchtower/lookout"
+	"github.com/litecoinfinance/lnd/watchtower/wtdb"
+	"github.com/litecoinfinance/lnd/watchtower/wtmock"
+	"github.com/litecoinfinance/lnd/watchtower/wtpolicy"
 )
 
 const csvDelay uint32 = 144

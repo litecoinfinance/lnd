@@ -7,7 +7,7 @@ import (
 
 	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
 	"github.com/litecoinfinance/btcd/wire"
-	"github.com/lightningnetwork/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/channeldb"
 )
 
 func initHintCache(t *testing.T) *HeightHintCache {

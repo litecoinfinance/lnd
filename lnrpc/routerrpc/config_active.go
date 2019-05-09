@@ -4,8 +4,8 @@ package routerrpc
 
 import (
 	"github.com/litecoinfinance/btcd/chaincfg"
-	"github.com/lightningnetwork/lnd/macaroons"
-	"github.com/lightningnetwork/lnd/routing"
+	"github.com/litecoinfinance/lnd/macaroons"
+	"github.com/litecoinfinance/lnd/routing"
 )
 
 // Config is the main configuration file for the router RPC server. It contains

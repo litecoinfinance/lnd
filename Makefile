@@ -1,5 +1,5 @@
-PKG := github.com/lightningnetwork/lnd
-ESCPKG := github.com\/lightningnetwork\/lnd
+PKG := github.com/litecoinfinance/lnd
+ESCPKG := github.com\/litecoinfinance\/lnd
 
 BTCD_PKG := github.com/litecoinfinance/btcd
 GOVERALLS_PKG := github.com/mattn/goveralls

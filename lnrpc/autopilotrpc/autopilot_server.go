@@ -8,8 +8,8 @@ import (
 	"sync/atomic"
 
 	"github.com/litecoinfinance/btcd/btcec"
-	"github.com/lightningnetwork/lnd/autopilot"
-	"github.com/lightningnetwork/lnd/lnrpc"
+	"github.com/litecoinfinance/lnd/autopilot"
+	"github.com/litecoinfinance/lnd/lnrpc"
 	"google.golang.org/grpc"
 	"gopkg.in/macaroon-bakery.v2/bakery"
 )

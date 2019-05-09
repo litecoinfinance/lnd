@@ -4,7 +4,7 @@ import (
 	"errors"
 	"io"
 
-	"github.com/lightningnetwork/lnd/watchtower/wtpolicy"
+	"github.com/litecoinfinance/lnd/watchtower/wtpolicy"
 )
 
 var (

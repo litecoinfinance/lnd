@@ -6,10 +6,10 @@ import (
 	"fmt"
 
 	"github.com/litecoinfinance/btcutil"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing"
-	"github.com/lightningnetwork/lnd/routing/route"
+	"github.com/litecoinfinance/lnd/lnrpc"
+	"github.com/litecoinfinance/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/routing"
+	"github.com/litecoinfinance/lnd/routing/route"
 	context "golang.org/x/net/context"
 )
 

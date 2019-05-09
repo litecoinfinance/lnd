@@ -19,7 +19,7 @@ import (
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/litecoinfinance/btcutil"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/tor"
+	"github.com/litecoinfinance/lnd/tor"
 )
 
 var (

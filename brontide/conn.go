@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/litecoinfinance/btcd/btcec"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/lnwire"
 )
 
 // Conn is an implementation of net.Conn which enforces an authenticated key

@@ -1,5 +1,5 @@
-module github.com/lightningnetwork/lnd/queue
+module github.com/litecoinfinance/lnd/queue
 
-require github.com/lightningnetwork/lnd/ticker v1.0.0
+require github.com/litecoinfinance/lnd/ticker v1.0.0
 
-replace github.com/lightningnetwork/lnd/ticker v1.0.0 => ../ticker
+replace github.com/litecoinfinance/lnd/ticker v1.0.0 => ../ticker

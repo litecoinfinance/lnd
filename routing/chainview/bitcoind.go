@@ -12,7 +12,7 @@ import (
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/litecoinfinance/btcwallet/chain"
 	"github.com/litecoinfinance/btcwallet/wtxmgr"
-	"github.com/lightningnetwork/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/channeldb"
 )
 
 // BitcoindFilteredChainView is an implementation of the FilteredChainView

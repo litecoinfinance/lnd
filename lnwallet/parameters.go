@@ -3,7 +3,7 @@ package lnwallet
 import (
 	"github.com/litecoinfinance/btcutil"
 	"github.com/litecoinfinance/btcwallet/wallet/txrules"
-	"github.com/lightningnetwork/lnd/input"
+	"github.com/litecoinfinance/lnd/input"
 )
 
 // DefaultDustLimit is used to calculate the dust HTLC amount which will be

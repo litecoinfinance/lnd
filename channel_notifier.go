@@ -6,8 +6,8 @@ import (
 
 	"github.com/litecoinfinance/btcd/btcec"
 	"github.com/litecoinfinance/btcd/wire"
-	"github.com/lightningnetwork/lnd/chanbackup"
-	"github.com/lightningnetwork/lnd/channelnotifier"
+	"github.com/litecoinfinance/lnd/chanbackup"
+	"github.com/litecoinfinance/lnd/channelnotifier"
 )
 
 // addrSource is an interface that allow us to get the addresses for a target

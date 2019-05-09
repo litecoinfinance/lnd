@@ -1,9 +1,9 @@
 ## Lightning Network Daemon
 
-[![Build Status](https://img.shields.io/travis/lightningnetwork/lnd.svg)](https://travis-ci.org/lightningnetwork/lnd)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/lightningnetwork/lnd/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/travis/litecoinfinance/lnd.svg)](https://travis-ci.org/litecoinfinance/lnd)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/litecoinfinance/lnd/blob/master/LICENSE)
 [![Irc](https://img.shields.io/badge/chat-on%20freenode-brightgreen.svg)](https://webchat.freenode.net/?channels=lnd)
-[![Godoc](https://godoc.org/github.com/lightningnetwork/lnd?status.svg)](https://godoc.org/github.com/lightningnetwork/lnd)
+[![Godoc](https://godoc.org/github.com/litecoinfinance/lnd?status.svg)](https://godoc.org/github.com/litecoinfinance/lnd)
 
 <img src="logo.png">
 
@@ -23,7 +23,7 @@ within it.  In the current state `lnd` is capable of:
 * Sending outgoing [onion-encrypted payments](https://github.com/litecoinfinance/lightning-onion)
 through the network.
 * Updating advertised fee schedules.
-* Automatic channel management ([`autopilot`](https://github.com/lightningnetwork/lnd/tree/master/autopilot)).
+* Automatic channel management ([`autopilot`](https://github.com/litecoinfinance/lnd/tree/master/autopilot)).
 
 ## Lightning Network Specification Compliance
 `lnd` _fully_ conforms to the [Lightning Network specification
@@ -86,5 +86,5 @@ preferably [encrypted using our designated PGP key
 here](https://pgp.mit.edu/pks/lookup?op=vindex&search=0x555C6465E5BCB3AF).
 
 ## Further reading
-* [Step-by-step send payment guide with docker](https://github.com/lightningnetwork/lnd/tree/master/docker)
-* [Contribution guide](https://github.com/lightningnetwork/lnd/blob/master/docs/code_contribution_guidelines.md)
+* [Step-by-step send payment guide with docker](https://github.com/litecoinfinance/lnd/tree/master/docker)
+* [Contribution guide](https://github.com/litecoinfinance/lnd/blob/master/docs/code_contribution_guidelines.md)

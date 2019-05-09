@@ -9,7 +9,7 @@ import (
 	"github.com/litecoinfinance/btcd/txscript"
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/litecoinfinance/btcutil"
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/litecoinfinance/lnd/lnwallet"
 )
 
 // TestDetermineFeePerKw tests that given a fee preference, the

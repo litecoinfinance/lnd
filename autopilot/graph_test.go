@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/litecoinfinance/btcutil"
-	"github.com/lightningnetwork/lnd/autopilot"
+	"github.com/litecoinfinance/lnd/autopilot"
 )
 
 // TestMedian tests the Median method.

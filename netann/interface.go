@@ -2,7 +2,7 @@ package netann
 
 import (
 	"github.com/litecoinfinance/btcd/wire"
-	"github.com/lightningnetwork/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/channeldb"
 )
 
 // DB abstracts the required database functionality needed by the

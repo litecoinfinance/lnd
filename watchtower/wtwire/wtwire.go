@@ -8,9 +8,9 @@ import (
 	"github.com/litecoinfinance/btcd/btcec"
 	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
 	"github.com/litecoinfinance/btcd/wire"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/watchtower/blob"
+	"github.com/litecoinfinance/lnd/lnwallet"
+	"github.com/litecoinfinance/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/watchtower/blob"
 )
 
 // WriteElement is a one-stop shop to write the big endian representation of

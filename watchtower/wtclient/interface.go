@@ -4,11 +4,11 @@ import (
 	"net"
 
 	"github.com/litecoinfinance/btcd/btcec"
-	"github.com/lightningnetwork/lnd/brontide"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
-	"github.com/lightningnetwork/lnd/watchtower/wtserver"
+	"github.com/litecoinfinance/lnd/brontide"
+	"github.com/litecoinfinance/lnd/keychain"
+	"github.com/litecoinfinance/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/watchtower/wtdb"
+	"github.com/litecoinfinance/lnd/watchtower/wtserver"
 )
 
 // DB abstracts the required database operations required by the watchtower

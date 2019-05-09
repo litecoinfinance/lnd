@@ -10,9 +10,9 @@ import (
 	base "github.com/litecoinfinance/btcwallet/wallet"
 	"github.com/litecoinfinance/btcwallet/walletdb"
 	"github.com/go-errors/errors"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/litecoinfinance/lnd/input"
+	"github.com/litecoinfinance/lnd/keychain"
+	"github.com/litecoinfinance/lnd/lnwallet"
 )
 
 // FetchInputInfo queries for the WalletController's knowledge of the passed

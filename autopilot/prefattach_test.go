@@ -11,7 +11,7 @@ import (
 
 	"github.com/litecoinfinance/btcd/btcec"
 	"github.com/litecoinfinance/btcutil"
-	"github.com/lightningnetwork/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/channeldb"
 )
 
 type genGraphFunc func() (testGraph, func(), error)

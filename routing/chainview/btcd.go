@@ -12,7 +12,7 @@ import (
 	"github.com/litecoinfinance/btcd/rpcclient"
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/litecoinfinance/btcutil"
-	"github.com/lightningnetwork/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/channeldb"
 )
 
 // BtcdFilteredChainView is an implementation of the FilteredChainView

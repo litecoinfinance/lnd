@@ -6,7 +6,7 @@ import (
 
 	"github.com/litecoinfinance/btcd/chaincfg"
 	"github.com/litecoinfinance/btcwallet/chain"
-	"github.com/lightningnetwork/lnd/chainntnfs"
+	"github.com/litecoinfinance/lnd/chainntnfs"
 )
 
 // createNewNotifier creates a new instance of the ChainNotifier interface

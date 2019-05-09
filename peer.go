@@ -17,17 +17,17 @@ import (
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/davecgh/go-spew/spew"
 
-	"github.com/lightningnetwork/lnd/brontide"
-	"github.com/lightningnetwork/lnd/buffer"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/contractcourt"
-	"github.com/lightningnetwork/lnd/htlcswitch"
-	"github.com/lightningnetwork/lnd/lnpeer"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/pool"
-	"github.com/lightningnetwork/lnd/ticker"
+	"github.com/litecoinfinance/lnd/brontide"
+	"github.com/litecoinfinance/lnd/buffer"
+	"github.com/litecoinfinance/lnd/chainntnfs"
+	"github.com/litecoinfinance/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/contractcourt"
+	"github.com/litecoinfinance/lnd/htlcswitch"
+	"github.com/litecoinfinance/lnd/lnpeer"
+	"github.com/litecoinfinance/lnd/lnwallet"
+	"github.com/litecoinfinance/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/pool"
+	"github.com/litecoinfinance/lnd/ticker"
 )
 
 var (

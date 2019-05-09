@@ -1,8 +1,8 @@
 package watchtower
 
 import (
-	"github.com/lightningnetwork/lnd/watchtower/lookout"
-	"github.com/lightningnetwork/lnd/watchtower/wtserver"
+	"github.com/litecoinfinance/lnd/watchtower/lookout"
+	"github.com/litecoinfinance/lnd/watchtower/wtserver"
 )
 
 // DB abstracts the persistent functionality required to run the watchtower

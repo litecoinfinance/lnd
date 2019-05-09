@@ -3,9 +3,9 @@
 package walletrpc
 
 import (
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/macaroons"
+	"github.com/litecoinfinance/lnd/keychain"
+	"github.com/litecoinfinance/lnd/lnwallet"
+	"github.com/litecoinfinance/lnd/macaroons"
 )
 
 // Config is the primary configuration struct for the WalletKit RPC server. It

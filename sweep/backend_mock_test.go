@@ -5,7 +5,7 @@ import (
 
 	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
 	"github.com/litecoinfinance/btcd/wire"
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/litecoinfinance/lnd/lnwallet"
 )
 
 // mockBackend simulates a chain backend for realistic behaviour in unit tests

@@ -2,10 +2,10 @@ package wtserver
 
 import (
 	"github.com/litecoinfinance/btcd/txscript"
-	"github.com/lightningnetwork/lnd/watchtower/blob"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
-	"github.com/lightningnetwork/lnd/watchtower/wtpolicy"
-	"github.com/lightningnetwork/lnd/watchtower/wtwire"
+	"github.com/litecoinfinance/lnd/watchtower/blob"
+	"github.com/litecoinfinance/lnd/watchtower/wtdb"
+	"github.com/litecoinfinance/lnd/watchtower/wtpolicy"
+	"github.com/litecoinfinance/lnd/watchtower/wtwire"
 )
 
 // handleCreateSession processes a CreateSession message from the peer, and returns

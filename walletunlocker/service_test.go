@@ -10,11 +10,11 @@ import (
 
 	"github.com/litecoinfinance/btcd/chaincfg"
 	"github.com/litecoinfinance/btcwallet/wallet"
-	"github.com/lightningnetwork/lnd/aezeed"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lnwallet/btcwallet"
-	"github.com/lightningnetwork/lnd/walletunlocker"
+	"github.com/litecoinfinance/lnd/aezeed"
+	"github.com/litecoinfinance/lnd/keychain"
+	"github.com/litecoinfinance/lnd/lnrpc"
+	"github.com/litecoinfinance/lnd/lnwallet/btcwallet"
+	"github.com/litecoinfinance/lnd/walletunlocker"
 	"golang.org/x/net/context"
 )
 

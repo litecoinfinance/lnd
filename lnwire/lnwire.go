@@ -15,7 +15,7 @@ import (
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/litecoinfinance/btcutil"
 	"github.com/go-errors/errors"
-	"github.com/lightningnetwork/lnd/tor"
+	"github.com/litecoinfinance/lnd/tor"
 )
 
 // MaxSliceLength is the maximum allowed length for any opaque byte slices in

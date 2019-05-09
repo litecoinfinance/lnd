@@ -10,7 +10,7 @@ import (
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/litecoinfinance/btcutil"
 	"github.com/litecoinfinance/btcwallet/wallet/txauthor"
-	"github.com/lightningnetwork/lnd/lntypes"
+	"github.com/litecoinfinance/lnd/lntypes"
 )
 
 // AddressType is an enum-like type which denotes the possible address types

@@ -12,11 +12,11 @@ import (
 	"time"
 
 	"github.com/litecoinfinance/btcutil"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing"
-	"github.com/lightningnetwork/lnd/routing/route"
-	"github.com/lightningnetwork/lnd/zpay32"
+	"github.com/litecoinfinance/lnd/lnrpc"
+	"github.com/litecoinfinance/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/routing"
+	"github.com/litecoinfinance/lnd/routing/route"
+	"github.com/litecoinfinance/lnd/zpay32"
 	"google.golang.org/grpc"
 	"gopkg.in/macaroon-bakery.v2/bakery"
 )

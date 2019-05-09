@@ -17,8 +17,8 @@ import (
 	"github.com/litecoinfinance/btcutil/gcs/builder"
 	"github.com/litecoinfinance/btcwallet/waddrmgr"
 	"github.com/litecoinfinance/neutrino"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/queue"
+	"github.com/litecoinfinance/lnd/chainntnfs"
+	"github.com/litecoinfinance/lnd/queue"
 )
 
 const (

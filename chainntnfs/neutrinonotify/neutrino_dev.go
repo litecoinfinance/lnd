@@ -9,7 +9,7 @@ import (
 	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
 	"github.com/litecoinfinance/btcd/rpcclient"
 	"github.com/litecoinfinance/neutrino"
-	"github.com/lightningnetwork/lnd/chainntnfs"
+	"github.com/litecoinfinance/lnd/chainntnfs"
 )
 
 // UnsafeStart starts the notifier with a specified best height and optional

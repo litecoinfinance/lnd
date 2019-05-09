@@ -20,8 +20,8 @@ import (
 	"github.com/litecoinfinance/btcwallet/wallet/txauthor"
 	"github.com/litecoinfinance/btcwallet/wallet/txrules"
 	"github.com/litecoinfinance/btcwallet/walletdb"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/litecoinfinance/lnd/keychain"
+	"github.com/litecoinfinance/lnd/lnwallet"
 )
 
 const (

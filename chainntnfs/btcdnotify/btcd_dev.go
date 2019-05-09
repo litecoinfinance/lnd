@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
-	"github.com/lightningnetwork/lnd/chainntnfs"
+	"github.com/litecoinfinance/lnd/chainntnfs"
 )
 
 // UnsafeStart starts the notifier with a specified best height and optional

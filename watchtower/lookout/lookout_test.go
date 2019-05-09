@@ -11,12 +11,12 @@ import (
 	"time"
 
 	"github.com/litecoinfinance/btcd/wire"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/watchtower/blob"
-	"github.com/lightningnetwork/lnd/watchtower/lookout"
-	"github.com/lightningnetwork/lnd/watchtower/wtdb"
-	"github.com/lightningnetwork/lnd/watchtower/wtmock"
-	"github.com/lightningnetwork/lnd/watchtower/wtpolicy"
+	"github.com/litecoinfinance/lnd/chainntnfs"
+	"github.com/litecoinfinance/lnd/watchtower/blob"
+	"github.com/litecoinfinance/lnd/watchtower/lookout"
+	"github.com/litecoinfinance/lnd/watchtower/wtdb"
+	"github.com/litecoinfinance/lnd/watchtower/wtmock"
+	"github.com/litecoinfinance/lnd/watchtower/wtpolicy"
 )
 
 type mockPunisher struct {

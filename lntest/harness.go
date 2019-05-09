@@ -20,8 +20,8 @@ import (
 	"github.com/litecoinfinance/btcd/txscript"
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/litecoinfinance/btcutil"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/lnrpc"
+	"github.com/litecoinfinance/lnd/lnwire"
 )
 
 // DefaultCSV is the CSV delay (remotedelay) we will start our test nodes with.

@@ -4,7 +4,7 @@ import (
 	"crypto/sha256"
 	"testing"
 
-	"github.com/lightningnetwork/lnd/lntypes"
+	"github.com/litecoinfinance/lnd/lntypes"
 )
 
 // TestWitnessCacheSha256Retrieval tests that we're able to add and lookup new

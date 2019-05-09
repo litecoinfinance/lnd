@@ -11,8 +11,8 @@ import (
 	"github.com/litecoinfinance/btcd/btcec"
 	"github.com/coreos/bbolt"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/lnwire"
 )
 
 func createTestMessageStore(t *testing.T) (*MessageStore, func()) {

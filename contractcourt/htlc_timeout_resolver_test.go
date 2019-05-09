@@ -8,10 +8,10 @@ import (
 	"time"
 
 	"github.com/litecoinfinance/btcd/wire"
-	"github.com/lightningnetwork/lnd/chainntnfs"
-	"github.com/lightningnetwork/lnd/input"
-	"github.com/lightningnetwork/lnd/lntypes"
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/litecoinfinance/lnd/chainntnfs"
+	"github.com/litecoinfinance/lnd/input"
+	"github.com/litecoinfinance/lnd/lntypes"
+	"github.com/litecoinfinance/lnd/lnwallet"
 )
 
 type mockSigner struct {

@@ -7,11 +7,11 @@ import (
 	"testing"
 
 	"github.com/litecoinfinance/btcutil"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing"
-	"github.com/lightningnetwork/lnd/routing/route"
+	"github.com/litecoinfinance/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/routing"
+	"github.com/litecoinfinance/lnd/routing/route"
 
-	"github.com/lightningnetwork/lnd/lnrpc"
+	"github.com/litecoinfinance/lnd/lnrpc"
 )
 
 const (

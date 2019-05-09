@@ -8,7 +8,7 @@ import (
 
 	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
 	"github.com/litecoinfinance/btcd/wire"
-	"github.com/lightningnetwork/lnd/chainntnfs"
+	"github.com/litecoinfinance/lnd/chainntnfs"
 )
 
 type MockBackend struct {

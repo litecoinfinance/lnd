@@ -6,7 +6,7 @@ import (
 	btcwallet "github.com/litecoinfinance/btcwallet/wallet"
 	"github.com/litecoinfinance/btcwallet/wtxmgr"
 
-	"github.com/lightningnetwork/lnd/build"
+	"github.com/litecoinfinance/lnd/build"
 )
 
 // walletLog is a logger that is initialized with no output filters.  This

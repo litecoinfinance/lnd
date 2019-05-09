@@ -12,7 +12,7 @@ import (
 	"github.com/litecoinfinance/btcwallet/chain"
 	"github.com/litecoinfinance/btcwallet/waddrmgr"
 	"github.com/litecoinfinance/neutrino"
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/litecoinfinance/lnd/lnwallet"
 )
 
 var (

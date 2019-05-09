@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/lightningnetwork/lnd/keychain"
+	"github.com/litecoinfinance/lnd/keychain"
 )
 
 const (

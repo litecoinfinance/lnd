@@ -25,9 +25,9 @@ import (
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/litecoinfinance/btcutil"
 	"github.com/go-errors/errors"
-	"github.com/lightningnetwork/lnd/chanbackup"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/macaroons"
+	"github.com/litecoinfinance/lnd/chanbackup"
+	"github.com/litecoinfinance/lnd/lnrpc"
+	"github.com/litecoinfinance/lnd/macaroons"
 )
 
 var (

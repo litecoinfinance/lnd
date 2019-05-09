@@ -9,8 +9,8 @@ import (
 	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/litecoinfinance/btcutil"
-	"github.com/lightningnetwork/lnd/tor"
-	"github.com/lightningnetwork/lnd/watchtower/lookout"
+	"github.com/litecoinfinance/lnd/tor"
+	"github.com/litecoinfinance/lnd/watchtower/lookout"
 )
 
 const (

@@ -21,16 +21,16 @@ import (
 
 	"github.com/litecoinfinance/btcutil"
 	flags "github.com/jessevdk/go-flags"
-	"github.com/lightningnetwork/lnd/build"
-	"github.com/lightningnetwork/lnd/chanbackup"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/discovery"
-	"github.com/lightningnetwork/lnd/htlcswitch/hodl"
-	"github.com/lightningnetwork/lnd/lncfg"
-	"github.com/lightningnetwork/lnd/lnrpc/signrpc"
-	"github.com/lightningnetwork/lnd/lnwire"
-	"github.com/lightningnetwork/lnd/routing"
-	"github.com/lightningnetwork/lnd/tor"
+	"github.com/litecoinfinance/lnd/build"
+	"github.com/litecoinfinance/lnd/chanbackup"
+	"github.com/litecoinfinance/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/discovery"
+	"github.com/litecoinfinance/lnd/htlcswitch/hodl"
+	"github.com/litecoinfinance/lnd/lncfg"
+	"github.com/litecoinfinance/lnd/lnrpc/signrpc"
+	"github.com/litecoinfinance/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/routing"
+	"github.com/litecoinfinance/lnd/tor"
 )
 
 const (

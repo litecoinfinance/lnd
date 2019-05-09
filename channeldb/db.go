@@ -13,7 +13,7 @@ import (
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/coreos/bbolt"
 	"github.com/go-errors/errors"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/lnwire"
 )
 
 const (

@@ -3,11 +3,11 @@ package lnd
 import (
 	"sync"
 
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/contractcourt"
-	"github.com/lightningnetwork/lnd/invoices"
-	"github.com/lightningnetwork/lnd/lntypes"
-	"github.com/lightningnetwork/lnd/lnwallet"
+	"github.com/litecoinfinance/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/contractcourt"
+	"github.com/litecoinfinance/lnd/invoices"
+	"github.com/litecoinfinance/lnd/lntypes"
+	"github.com/litecoinfinance/lnd/lnwallet"
 )
 
 // preimageSubscriber reprints an active subscription to be notified once the

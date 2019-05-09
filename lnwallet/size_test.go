@@ -9,7 +9,7 @@ import (
 	"github.com/litecoinfinance/btcd/wire"
 	"github.com/litecoinfinance/btcutil"
 
-	"github.com/lightningnetwork/lnd/input"
+	"github.com/litecoinfinance/lnd/input"
 )
 
 // TestTxWeightEstimator tests that transaction weight estimates are calculated

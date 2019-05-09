@@ -4,8 +4,8 @@ import (
 	"sync"
 
 	"github.com/litecoinfinance/btcd/btcec"
-	"github.com/lightningnetwork/lnd/lnpeer"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/lnpeer"
+	"github.com/litecoinfinance/lnd/lnwire"
 )
 
 // reliableSenderCfg contains all of necessary items for the reliableSender to

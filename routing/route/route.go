@@ -6,7 +6,7 @@ import (
 
 	"github.com/litecoinfinance/btcd/btcec"
 	sphinx "github.com/litecoinfinance/lightning-onion"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/lnwire"
 )
 
 // ErrNoRouteHopsProvided is returned when a caller attempts to construct a new

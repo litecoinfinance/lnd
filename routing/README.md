@@ -1,9 +1,9 @@
 routing
 =======
 
-[![Build Status](http://img.shields.io/travis/lightningnetwork/lnd.svg)](https://travis-ci.org/lightningnetwork/lnd) 
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/lightningnetwork/lnd/blob/master/LICENSE)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/lightningnetwork/lnd/routing)
+[![Build Status](http://img.shields.io/travis/litecoinfinance/lnd.svg)](https://travis-ci.org/litecoinfinance/lnd) 
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/litecoinfinance/lnd/blob/master/LICENSE)
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/litecoinfinance/lnd/routing)
 
 The routing package implements authentication+validation of channel
 announcements, pruning of the channel graph, path finding within the network,
@@ -13,5 +13,5 @@ channel graph state.
 ## Installation and Updating
 
 ```bash
-$ go get -u github.com/lightningnetwork/lnd/routing
+$ go get -u github.com/litecoinfinance/lnd/routing
 ```

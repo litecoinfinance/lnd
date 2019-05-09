@@ -9,12 +9,12 @@ import (
 
 	"github.com/litecoinfinance/btcd/chaincfg"
 	"github.com/litecoinfinance/btcwallet/wallet"
-	"github.com/lightningnetwork/lnd/aezeed"
-	"github.com/lightningnetwork/lnd/chanbackup"
-	"github.com/lightningnetwork/lnd/keychain"
-	"github.com/lightningnetwork/lnd/lnrpc"
-	"github.com/lightningnetwork/lnd/lnwallet"
-	"github.com/lightningnetwork/lnd/lnwallet/btcwallet"
+	"github.com/litecoinfinance/lnd/aezeed"
+	"github.com/litecoinfinance/lnd/chanbackup"
+	"github.com/litecoinfinance/lnd/keychain"
+	"github.com/litecoinfinance/lnd/lnrpc"
+	"github.com/litecoinfinance/lnd/lnwallet"
+	"github.com/litecoinfinance/lnd/lnwallet/btcwallet"
 	"golang.org/x/net/context"
 )
 

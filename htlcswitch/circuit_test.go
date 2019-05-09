@@ -10,9 +10,9 @@ import (
 	bitcoinCfg "github.com/litecoinfinance/btcd/chaincfg"
 	"github.com/litecoinfinance/btcutil"
 	"github.com/litecoinfinance/lightning-onion"
-	"github.com/lightningnetwork/lnd/channeldb"
-	"github.com/lightningnetwork/lnd/htlcswitch"
-	"github.com/lightningnetwork/lnd/lnwire"
+	"github.com/litecoinfinance/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/htlcswitch"
+	"github.com/litecoinfinance/lnd/lnwire"
 )
 
 var (

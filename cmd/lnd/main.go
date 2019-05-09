@@ -5,7 +5,7 @@ import (
 	"os"
 
 	flags "github.com/jessevdk/go-flags"
-	"github.com/lightningnetwork/lnd"
+	"github.com/litecoinfinance/lnd"
 )
 
 func main() {

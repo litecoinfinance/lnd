@@ -11,7 +11,7 @@ import (
 	"github.com/litecoinfinance/btcutil"
 	"github.com/litecoinfinance/btcutil/gcs/builder"
 	"github.com/litecoinfinance/neutrino"
-	"github.com/lightningnetwork/lnd/channeldb"
+	"github.com/litecoinfinance/lnd/channeldb"
 )
 
 // CfFilteredChainView is an implementation of the FilteredChainView interface
