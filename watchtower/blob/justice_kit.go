@@ -179,7 +179,7 @@ func (b *JusticeKit) CommitToLocalRevokeWitnessStack() ([][]byte, error) {
 
 	witnessStack := make([][]byte, 2)
 	witnessStack[0] = append(toLocalSig.Serialize(),
-		byte(txscript.SigHashAll))
+		byte(txscript.SigHashAll|txscript.SigHashForkID))
 	witnessStack[1] = []byte{1}
 
 	return witnessStack, nil
@@ -212,7 +212,7 @@ func (b *JusticeKit) CommitToRemoteWitnessStack() ([][]byte, error) {
 
 	witnessStack := make([][]byte, 1)
 	witnessStack[0] = append(toRemoteSig.Serialize(),
-		byte(txscript.SigHashAll))
+		byte(txscript.SigHashAll|txscript.SigHashForkID))
 
 	return witnessStack, nil
 }

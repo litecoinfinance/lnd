@@ -733,7 +733,7 @@ func (l *LightningWallet) handleContributionMsg(req *addContributionMsg) {
 	pendingReservation.ourFundingInputScripts = make([]*input.Script, 0,
 		len(ourContribution.Inputs))
 	signDesc := input.SignDescriptor{
-		HashType:  txscript.SigHashAll,
+		HashType:  txscript.SigHashAll | txscript.SigHashForkID,
 		SigHashes: txscript.NewTxSigHashes(fundingTx),
 	}
 	for i, txIn := range fundingTx.TxIn {
@@ -863,7 +863,7 @@ func (l *LightningWallet) handleContributionMsg(req *addContributionMsg) {
 		WitnessScript: witnessScript,
 		KeyDesc:       ourKey,
 		Output:        multiSigOut,
-		HashType:      txscript.SigHashAll,
+		HashType:      txscript.SigHashAll | txscript.SigHashForkID,
 		SigHashes:     txscript.NewTxSigHashes(theirCommitTx),
 		InputIndex:    0,
 	}
@@ -1030,7 +1030,7 @@ func (l *LightningWallet) handleFundingCounterPartySigs(msg *addCounterPartySigs
 	channelValue := int64(res.partialState.Capacity)
 	hashCache := txscript.NewTxSigHashes(commitTx)
 	sigHash, err := txscript.CalcWitnessSigHash(witnessScript, hashCache,
-		txscript.SigHashAll, commitTx, 0, channelValue)
+		txscript.SigHashAll|txscript.SigHashForkID, commitTx, 0, channelValue)
 	if err != nil {
 		msg.err <- err
 		msg.completeChan <- nil
@@ -1177,7 +1177,7 @@ func (l *LightningWallet) handleSingleFunderSigs(req *addSingleFunderSigsMsg) {
 	}
 
 	sigHash, err := txscript.CalcWitnessSigHash(witnessScript, hashCache,
-		txscript.SigHashAll, ourCommitTx, 0, channelValue)
+		txscript.SigHashAll|txscript.SigHashForkID, ourCommitTx, 0, channelValue)
 	if err != nil {
 		req.err <- err
 		req.completeChan <- nil
@@ -1215,7 +1215,7 @@ func (l *LightningWallet) handleSingleFunderSigs(req *addSingleFunderSigsMsg) {
 			PkScript: p2wsh,
 			Value:    channelValue,
 		},
-		HashType:   txscript.SigHashAll,
+		HashType:   txscript.SigHashAll | txscript.SigHashForkID,
 		SigHashes:  txscript.NewTxSigHashes(theirCommitTx),
 		InputIndex: 0,
 	}

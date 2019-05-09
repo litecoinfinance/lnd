@@ -225,7 +225,7 @@ func CraftSweepAllTx(feeRate lnwallet.SatPerKWeight, blockHeight uint32,
 		// the sweeper via the witness generation function.
 		signDesc := &input.SignDescriptor{
 			Output:   outputInfo,
-			HashType: txscript.SigHashAll,
+			HashType: txscript.SigHashAll|txscript.SigHashForkID,
 		}
 
 		pkScript := outputInfo.PkScript

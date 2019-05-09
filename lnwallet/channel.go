@@ -1443,7 +1443,7 @@ func (lc *LightningChannel) createSignDesc() error {
 			PkScript: fundingPkScript,
 			Value:    int64(lc.channelState.Capacity),
 		},
-		HashType:   txscript.SigHashAll,
+		HashType:   txscript.SigHashAll|txscript.SigHashForkID,
 		InputIndex: 0,
 	}
 
@@ -2043,7 +2043,7 @@ func NewBreachRetribution(chanState *channeldb.OpenChannel, stateNum uint64,
 				PkScript: localPkScript,
 				Value:    int64(localAmt),
 			},
-			HashType: txscript.SigHashAll,
+			HashType: txscript.SigHashAll|txscript.SigHashForkID,
 		}
 	}
 
@@ -2058,7 +2058,7 @@ func NewBreachRetribution(chanState *channeldb.OpenChannel, stateNum uint64,
 				PkScript: remoteWitnessHash,
 				Value:    int64(remoteAmt),
 			},
-			HashType: txscript.SigHashAll,
+			HashType: txscript.SigHashAll|txscript.SigHashForkID,
 		}
 	}
 
@@ -2133,7 +2133,7 @@ func NewBreachRetribution(chanState *channeldb.OpenChannel, stateNum uint64,
 					PkScript: htlcPkScript,
 					Value:    int64(htlc.Amt.ToSatoshis()),
 				},
-				HashType: txscript.SigHashAll,
+				HashType: txscript.SigHashAll|txscript.SigHashForkID,
 			},
 			OutPoint: wire.OutPoint{
 				Hash:  commitHash,
@@ -2825,7 +2825,7 @@ func genRemoteHtlcSigJobs(keyRing *CommitmentKeyRing,
 			Output: &wire.TxOut{
 				Value: int64(htlc.Amount.ToSatoshis()),
 			},
-			HashType:   txscript.SigHashAll,
+			HashType:   txscript.SigHashAll|txscript.SigHashForkID,
 			SigHashes:  txscript.NewTxSigHashes(sigJob.Tx),
 			InputIndex: 0,
 		}
@@ -2876,7 +2876,7 @@ func genRemoteHtlcSigJobs(keyRing *CommitmentKeyRing,
 			Output: &wire.TxOut{
 				Value: int64(htlc.Amount.ToSatoshis()),
 			},
-			HashType:   txscript.SigHashAll,
+			HashType:   txscript.SigHashAll|txscript.SigHashForkID,
 			SigHashes:  txscript.NewTxSigHashes(sigJob.Tx),
 			InputIndex: 0,
 		}
@@ -3880,7 +3880,7 @@ func genHtlcSigValidationJobs(localCommitmentView *commitment,
 				hashCache := txscript.NewTxSigHashes(successTx)
 				sigHash, err := txscript.CalcWitnessSigHash(
 					htlc.ourWitnessScript, hashCache,
-					txscript.SigHashAll, successTx, 0,
+					txscript.SigHashAll|txscript.SigHashForkID, successTx, 0,
 					int64(htlc.Amount.ToSatoshis()),
 				)
 				if err != nil {
@@ -3934,7 +3934,7 @@ func genHtlcSigValidationJobs(localCommitmentView *commitment,
 				hashCache := txscript.NewTxSigHashes(timeoutTx)
 				sigHash, err := txscript.CalcWitnessSigHash(
 					htlc.ourWitnessScript, hashCache,
-					txscript.SigHashAll, timeoutTx, 0,
+					txscript.SigHashAll|txscript.SigHashForkID, timeoutTx, 0,
 					int64(htlc.Amount.ToSatoshis()),
 				)
 				if err != nil {
@@ -4113,7 +4113,7 @@ func (lc *LightningChannel) ReceiveNewCommitment(commitSig lnwire.Sig,
 	multiSigScript := lc.signDesc.WitnessScript
 	hashCache := txscript.NewTxSigHashes(localCommitTx)
 	sigHash, err := txscript.CalcWitnessSigHash(
-		multiSigScript, hashCache, txscript.SigHashAll,
+		multiSigScript, hashCache, txscript.SigHashAll|txscript.SigHashForkID,
 		localCommitTx, 0, int64(lc.channelState.Capacity),
 	)
 	if err != nil {
@@ -5004,7 +5004,7 @@ func (lc *LightningChannel) getSignedCommitTx() (*wire.MsgTx, error) {
 	// for the transaction.
 	localCommit := lc.channelState.LocalCommitment
 	commitTx := localCommit.CommitTx
-	theirSig := append(localCommit.CommitSig, byte(txscript.SigHashAll))
+	theirSig := append(localCommit.CommitSig, byte(txscript.SigHashAll|txscript.SigHashForkID))
 
 	// With this, we then generate the full witness so the caller can
 	// broadcast a fully signed transaction.
@@ -5014,7 +5014,7 @@ func (lc *LightningChannel) getSignedCommitTx() (*wire.MsgTx, error) {
 		return nil, err
 	}
 
-	ourSig := append(ourSigRaw, byte(txscript.SigHashAll))
+	ourSig := append(ourSigRaw, byte(txscript.SigHashAll|txscript.SigHashForkID))
 
 	// With the final signature generated, create the witness stack
 	// required to spend from the multi-sig output.
@@ -5163,7 +5163,7 @@ func NewUnilateralCloseSummary(chanState *channeldb.OpenChannel, signer input.Si
 					Value:    localBalance,
 					PkScript: selfP2WKH,
 				},
-				HashType: txscript.SigHashAll,
+				HashType: txscript.SigHashAll|txscript.SigHashForkID,
 			},
 			MaturityDelay: 0,
 		}
@@ -5346,7 +5346,7 @@ func newOutgoingHtlcResolution(signer input.Signer, localChanCfg *channeldb.Chan
 					PkScript: htlcScriptHash,
 					Value:    int64(htlc.Amt.ToSatoshis()),
 				},
-				HashType: txscript.SigHashAll,
+				HashType: txscript.SigHashAll|txscript.SigHashForkID,
 			},
 		}, nil
 	}
@@ -5385,7 +5385,7 @@ func newOutgoingHtlcResolution(signer input.Signer, localChanCfg *channeldb.Chan
 		Output: &wire.TxOut{
 			Value: int64(htlc.Amt.ToSatoshis()),
 		},
-		HashType:   txscript.SigHashAll,
+		HashType:   txscript.SigHashAll|txscript.SigHashForkID,
 		SigHashes:  txscript.NewTxSigHashes(timeoutTx),
 		InputIndex: 0,
 	}
@@ -5433,7 +5433,7 @@ func newOutgoingHtlcResolution(signer input.Signer, localChanCfg *channeldb.Chan
 				PkScript: htlcScriptHash,
 				Value:    int64(secondLevelOutputAmt),
 			},
-			HashType: txscript.SigHashAll,
+			HashType: txscript.SigHashAll|txscript.SigHashForkID,
 		},
 	}, nil
 }
@@ -5486,7 +5486,7 @@ func newIncomingHtlcResolution(signer input.Signer, localChanCfg *channeldb.Chan
 					PkScript: htlcScriptHash,
 					Value:    int64(htlc.Amt.ToSatoshis()),
 				},
-				HashType: txscript.SigHashAll,
+				HashType: txscript.SigHashAll|txscript.SigHashForkID,
 			},
 		}, nil
 	}
@@ -5521,7 +5521,7 @@ func newIncomingHtlcResolution(signer input.Signer, localChanCfg *channeldb.Chan
 		Output: &wire.TxOut{
 			Value: int64(htlc.Amt.ToSatoshis()),
 		},
-		HashType:   txscript.SigHashAll,
+		HashType:   txscript.SigHashAll|txscript.SigHashForkID,
 		SigHashes:  txscript.NewTxSigHashes(successTx),
 		InputIndex: 0,
 	}
@@ -5569,7 +5569,7 @@ func newIncomingHtlcResolution(signer input.Signer, localChanCfg *channeldb.Chan
 				PkScript: htlcScriptHash,
 				Value:    int64(secondLevelOutputAmt),
 			},
-			HashType: txscript.SigHashAll,
+			HashType: txscript.SigHashAll|txscript.SigHashForkID,
 		},
 	}, nil
 }
@@ -5817,7 +5817,7 @@ func NewLocalForceCloseSummary(chanState *channeldb.OpenChannel, signer input.Si
 					PkScript: delayScript,
 					Value:    int64(localBalance.ToSatoshis()),
 				},
-				HashType: txscript.SigHashAll,
+				HashType: txscript.SigHashAll|txscript.SigHashForkID,
 			},
 			MaturityDelay: csvTimeout,
 		}
