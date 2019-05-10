@@ -74,7 +74,7 @@ var litecoinTestNetParams = litecoinNetParams{
 // Litecoin mainnet.
 var litecoinMainNetParams = litecoinNetParams{
 	Params:   &litecoinCfg.MainNetParams,
-	rpcPort:  "9334",
+	rpcPort:  "39329",
 	CoinType: keychain.CoinTypeLitecoin,
 }
 
