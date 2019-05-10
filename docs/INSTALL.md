@@ -11,7 +11,7 @@
     * [Starting btcd](#starting-btcd)
     * [Running lnd using the btcd backend](#running-lnd-using-the-btcd-backend)
   * [Using Neutrino](#using-neutrino)
-  * [Using bitcoind or litecoind](#using-bitcoind-or-litecoind)
+  * [Using bitcoind or litecoinfinanced](#using-bitcoind-or-litecoinfinanced)
 * [Macaroons](#macaroons)
 * [Network Reachability](#network-reachability)
 * [Simnet vs. Testnet Development](#simnet-vs-testnet-development)
@@ -289,13 +289,13 @@ lnd --bitcoin.active --bitcoin.testnet --debuglevel=debug --bitcoin.node=neutrin
 ```
 
 
-## Using bitcoind or litecoind
+## Using bitcoind or litecoinfinanced
 
-The configuration for bitcoind and litecoind are nearly identical, the
-following steps can be mirrored with loss of generality to enable a litecoind
+The configuration for bitcoind and litecoinfinanced are nearly identical, the
+following steps can be mirrored with loss of generality to enable a litecoinfinanced
 backend.  Setup will be described in regards to `bitcoind`, but note that `lnd`
-uses a distinct `litecoin.node=litecoind` argument and analogous
-subconfigurations prefixed by `litecoind`. Note that adding `--txindex` is
+uses a distinct `litecoinfinance.node=litecoinfinanced` argument and analogous
+subconfigurations prefixed by `litecoinfinanced`. Note that adding `--txindex` is
 optional, as it will take longer to sync the node, but then `lnd` will
 generally operate faster as it can hit the index directly, rather than scanning
 blocks or BIP 158 filters for relevant items.
@@ -434,10 +434,10 @@ bitcoin.active=1
 ```
 
 Notice the `[Bitcoin]` section. This section houses the parameters for the
-Bitcoin chain. `lnd` also supports Litecoin testnet4 (but not both BTC and LTC
-at the same time), so when working with Litecoin be sure to set to parameters
-for Litecoin accordingly. See a more detailed sample config file available
+Bitcoin chain. `lnd` also supports Litecoinfinance testnet4 (but not both BTC and LTC
+at the same time), so when working with Litecoinfinance be sure to set to parameters
+for Litecoinfinance accordingly. See a more detailed sample config file available
 [here](https://github.com/litecoinfinance/lnd/blob/master/sample-lnd.conf)
 and explore the other sections for node configuration, including `[Btcd]`,
-`[Bitcoind]`, `[Neutrino]`, `[Ltcd]`, and `[Litecoind]` depending on which
+`[Bitcoind]`, `[Neutrino]`, `[Ltcd]`, and `[litecoinfinanced]` depending on which
 chain and node type you're using.

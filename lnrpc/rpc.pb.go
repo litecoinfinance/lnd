@@ -3289,7 +3289,7 @@ func (m *GetInfoResponse) GetChains() []*Chain {
 }
 
 type Chain struct {
-	// / The blockchain the node is on (eg bitcoin, litecoin)
+	// / The blockchain the node is on (eg bitcoin, litecoinfinance)
 	Chain string `protobuf:"bytes,1,opt,name=chain,proto3" json:"chain,omitempty"`
 	// / The network the node is on (eg regtest, testnet, mainnet)
 	Network              string   `protobuf:"bytes,2,opt,name=network,proto3" json:"network,omitempty"`

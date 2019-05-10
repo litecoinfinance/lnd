@@ -1338,7 +1338,7 @@ message GetInfoResponse {
 }
 
 message Chain {
-    /// The blockchain the node is on (eg bitcoin, litecoin)
+    /// The blockchain the node is on (eg bitcoin, litecoinfinance)
     string chain = 1 [json_name = "chain"];
 
     /// The network the node is on (eg regtest, testnet, mainnet)

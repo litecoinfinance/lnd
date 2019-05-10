@@ -71,14 +71,14 @@ var litecoinTestNetParams = litecoinNetParams{
 }
 
 // litecoinMainNetParams contains the parameters specific to the current
-// Litecoin mainnet.
+// Litecoinfinance mainnet.
 var litecoinMainNetParams = litecoinNetParams{
 	Params:   &litecoinCfg.MainNetParams,
 	rpcPort:  "39329",
 	CoinType: keychain.CoinTypeLitecoin,
 }
 
-// litecoinRegTestNetParams contains parameters specific to a local litecoin
+// litecoinRegTestNetParams contains parameters specific to a local litecoinfinance
 // regtest network.
 var litecoinRegTestNetParams = litecoinNetParams{
 	Params:   &litecoinCfg.RegressionNetParams,
@@ -95,7 +95,7 @@ var bitcoinRegTestNetParams = bitcoinNetParams{
 }
 
 // applyLitecoinParams applies the relevant chain configuration parameters that
-// differ for litecoin to the chain parameters typed for btcsuite derivation.
+// differ for litecoinfinance to the chain parameters typed for btcsuite derivation.
 // This function is used in place of using something like interface{} to
 // abstract over _which_ chain (or fork) the parameters are for.
 func applyLitecoinParams(params *bitcoinNetParams, litecoinParams *litecoinNetParams) {

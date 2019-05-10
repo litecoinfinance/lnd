@@ -45,7 +45,7 @@ DEBUG=$(set_default "$DEBUG" "debug")
 NETWORK=$(set_default "$NETWORK" "simnet")
 CHAIN=$(set_default "$CHAIN" "bitcoin")
 BACKEND="btcd"
-if [[ "$CHAIN" == "litecoin" ]]; then
+if [[ "$CHAIN" == "litecoinfinance" ]]; then
     BACKEND="ltcd"
 fi
 

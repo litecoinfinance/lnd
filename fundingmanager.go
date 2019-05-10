@@ -42,7 +42,7 @@ const (
 	maxBtcRemoteDelay uint16 = 2016
 
 	// minLtcRemoteDelay and maxLtcRemoteDelay is the extremes of the
-	// Litecoin CSV delay we will require the remote to use for its
+	// Litecoinfinance CSV delay we will require the remote to use for its
 	// commitment transaction. The actual delay we will require will be
 	// somewhere between these values, depending on channel size.
 	minLtcRemoteDelay uint16 = 576
@@ -65,7 +65,7 @@ const (
 	maxBtcFundingAmount = btcutil.Amount(1<<24) - 1
 
 	// maxLtcFundingAmount is a soft-limit of the maximum channel size
-	// currently accepted on the Litecoin chain within the Lightning
+	// currently accepted on the Litecoinfinance chain within the Lightning
 	// Protocol.
 	maxLtcFundingAmount = maxBtcFundingAmount * btcToLtcConversionRate
 )

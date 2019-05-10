@@ -847,13 +847,13 @@ func newServer(listenAddrs []net.Addr, chanDB *channeldb.DB, cc *chainControl,
 	})
 
 	// Select the configuration and furnding parameters for Bitcoin or
-	// Litecoin, depending on the primary registered chain.
+	// Litecoinfinance, depending on the primary registered chain.
 	primaryChain := registeredChains.PrimaryChain()
 	chainCfg := cfg.Bitcoin
 	minRemoteDelay := minBtcRemoteDelay
 	maxRemoteDelay := maxBtcRemoteDelay
 	if primaryChain == litecoinChain {
-		chainCfg = cfg.Litecoin
+		chainCfg = cfg.Litecoinfinance
 		minRemoteDelay = minLtcRemoteDelay
 		maxRemoteDelay = maxLtcRemoteDelay
 	}
@@ -917,7 +917,7 @@ func newServer(listenAddrs []net.Addr, chanDB *channeldb.DB, cc *chainControl,
 			// in the case this gets re-orged out, and
 			// we will require more confirmations before
 			// we consider it open.
-			// TODO(halseth): Use Litecoin params in case
+			// TODO(halseth): Use Litecoinfinance params in case
 			// of LTC channels.
 
 			// In case the user has explicitly specified
@@ -951,7 +951,7 @@ func newServer(listenAddrs []net.Addr, chanDB *channeldb.DB, cc *chainControl,
 			// close) linearly from minRemoteDelay blocks
 			// for small channels, to maxRemoteDelay blocks
 			// for channels of size maxFundingAmount.
-			// TODO(halseth): Litecoin parameter for LTC.
+			// TODO(halseth): Litecoinfinance parameter for LTC.
 
 			// In case the user has explicitly specified
 			// a default value for the remote delay, we
@@ -1215,8 +1215,8 @@ func (s *server) Start() error {
 		// configure the set of active bootstrappers, and launch a
 		// dedicated goroutine to maintain a set of persistent
 		// connections.
-		if !cfg.NoNetBootstrap && !(cfg.Bitcoin.SimNet || cfg.Litecoin.SimNet) &&
-			!(cfg.Bitcoin.RegTest || cfg.Litecoin.RegTest) {
+		if !cfg.NoNetBootstrap && !(cfg.Bitcoin.SimNet || cfg.Litecoinfinance.SimNet) &&
+			!(cfg.Bitcoin.RegTest || cfg.Litecoinfinance.RegTest) {
 
 			bootstrappers, err := initNetworkBootstrappers(s)
 			if err != nil {
@@ -1496,7 +1496,7 @@ func initNetworkBootstrappers(s *server) ([]discovery.NetworkPeerBootstrapper, e
 
 	// If this isn't simnet mode, then one of our additional bootstrapping
 	// sources will be the set of running DNS seeds.
-	if !cfg.Bitcoin.SimNet || !cfg.Litecoin.SimNet {
+	if !cfg.Bitcoin.SimNet || !cfg.Litecoinfinance.SimNet {
 		dnsSeeds, ok := chainDNSSeeds[*activeNetParams.GenesisHash]
 
 		// If we have a set of DNS seeds for this chain, then we'll add

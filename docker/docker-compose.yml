@@ -32,7 +32,7 @@ services:
         entrypoint: ["./start-btcctl.sh"]
 
 
-    # ltc is an image of litecoin node which used as base image for ltcd and
+    # ltc is an image of litecoinfinance node which used as base image for ltcd and
     # ltcctl. The environment variables default values determined on stage of
     # container start within starting script.
     ltc:
@@ -41,7 +41,7 @@ services:
         context: ltcd/
       volumes:
             - shared:/rpc
-            - litecoin:/data
+            - litecoinfinance:/data
       environment:
         - RPCUSER
         - RPCPASS
@@ -100,7 +100,7 @@ volumes:
   bitcoin:
     driver: local
 
-  # litecoin volume is needed for maintaining blockchain persistence
+  # litecoinfinance volume is needed for maintaining blockchain persistence
   # during ltcd container recreation.
-  litecoin:
+  litecoinfinance:
     driver: local

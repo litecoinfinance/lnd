@@ -54,7 +54,7 @@ const (
 	defaultLitecoinStaticFeePerKW = lnwallet.SatPerKWeight(50000)
 
 	// btcToLtcConversionRate is a fixed ratio used in order to scale up
-	// payments when running on the Litecoin chain.
+	// payments when running on the Litecoinfinance chain.
 	btcToLtcConversionRate = 60
 )
 
@@ -68,7 +68,7 @@ var defaultBtcChannelConstraints = channeldb.ChannelConstraints{
 }
 
 // defaultLtcChannelConstraints is the default set of channel constraints that are
-// meant to be used when initially funding a Litecoin channel.
+// meant to be used when initially funding a Litecoinfinance channel.
 var defaultLtcChannelConstraints = channeldb.ChannelConstraints{
 	DustLimit:        defaultLitecoinDustLimit,
 	MaxAcceptedHtlcs: input.MaxHTLCNumber / 2,
@@ -82,7 +82,7 @@ const (
 	// bitcoinChain is Bitcoin's testnet chain.
 	bitcoinChain chainCode = iota
 
-	// litecoinChain is Litecoin's testnet chain.
+	// litecoinChain is Litecoinfinance's testnet chain.
 	litecoinChain
 )
 
@@ -92,7 +92,7 @@ func (c chainCode) String() string {
 	case bitcoinChain:
 		return "bitcoin"
 	case litecoinChain:
-		return "litecoin"
+		return "litecoinfinance"
 	default:
 		return "kekcoin"
 	}
@@ -138,7 +138,7 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 	// active, so we'll restrict usage to a particular chain for now.
 	homeChainConfig := cfg.Bitcoin
 	if registeredChains.PrimaryChain() == litecoinChain {
-		homeChainConfig = cfg.Litecoin
+		homeChainConfig = cfg.Litecoinfinance
 	}
 	ltndLog.Infof("Primary chain is set to: %v",
 		registeredChains.PrimaryChain())
@@ -158,10 +158,10 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 		)
 	case litecoinChain:
 		cc.routingPolicy = htlcswitch.ForwardingPolicy{
-			MinHTLC:       cfg.Litecoin.MinHTLC,
-			BaseFee:       cfg.Litecoin.BaseFee,
-			FeeRate:       cfg.Litecoin.FeeRate,
-			TimeLockDelta: cfg.Litecoin.TimeLockDelta,
+			MinHTLC:       cfg.Litecoinfinance.MinHTLC,
+			BaseFee:       cfg.Litecoinfinance.BaseFee,
+			FeeRate:       cfg.Litecoinfinance.FeeRate,
+			TimeLockDelta: cfg.Litecoinfinance.TimeLockDelta,
 		}
 		cc.feeEstimator = lnwallet.NewStaticFeeEstimator(
 			defaultLitecoinStaticFeePerKW, 0,
@@ -228,12 +228,12 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 			activeNetParams.Params, neutrinoCS,
 		)
 
-	case "bitcoind", "litecoind":
+	case "bitcoind", "litecoinfinanced":
 		var bitcoindMode *bitcoindConfig
 		switch {
 		case cfg.Bitcoin.Active:
 			bitcoindMode = cfg.BitcoindMode
-		case cfg.Litecoin.Active:
+		case cfg.Litecoinfinance.Active:
 			bitcoindMode = cfg.LitecoindMode
 		}
 		// Otherwise, we'll be speaking directly via RPC and ZMQ to a
@@ -257,12 +257,12 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 			bitcoindHost = fmt.Sprintf("%v:%d",
 				bitcoindMode.RPCHost, rpcPort)
 			if (cfg.Bitcoin.Active && cfg.Bitcoin.RegTest) ||
-				(cfg.Litecoin.Active && cfg.Litecoin.RegTest) {
+				(cfg.Litecoinfinance.Active && cfg.Litecoinfinance.RegTest) {
 				conn, err := net.Dial("tcp", bitcoindHost)
 				if err != nil || conn == nil {
 					if cfg.Bitcoin.Active && cfg.Bitcoin.RegTest {
 						rpcPort = 18443
-					} else if cfg.Litecoin.Active && cfg.Litecoin.RegTest {
+					} else if cfg.Litecoinfinance.Active && cfg.Litecoinfinance.RegTest {
 						rpcPort = 19443
 					}
 					bitcoindHost = fmt.Sprintf("%v:%d",
@@ -325,11 +325,11 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 			if err := cc.feeEstimator.Start(); err != nil {
 				return nil, err
 			}
-		} else if cfg.Litecoin.Active && !cfg.Litecoin.RegTest {
-			ltndLog.Infof("Initializing litecoind backed fee estimator")
+		} else if cfg.Litecoinfinance.Active && !cfg.Litecoinfinance.RegTest {
+			ltndLog.Infof("Initializing litecoinfinanced backed fee estimator")
 
 			// Finally, we'll re-initialize the fee estimator, as
-			// if we're using litecoind as a backend, then we can
+			// if we're using litecoinfinanced as a backend, then we can
 			// use live fee estimates, rather than a statically
 			// coded value.
 			fallBackFeeRate := lnwallet.SatPerKVByte(25 * 1000)
@@ -354,7 +354,7 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 		switch {
 		case cfg.Bitcoin.Active:
 			btcdMode = cfg.BtcdMode
-		case cfg.Litecoin.Active:
+		case cfg.Litecoinfinance.Active:
 			btcdMode = cfg.LtcdMode
 		}
 		var rpcCert []byte
@@ -428,8 +428,8 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 
 		// If we're not in simnet or regtest mode, then we'll attempt
 		// to use a proper fee estimator for testnet.
-		if !cfg.Bitcoin.SimNet && !cfg.Litecoin.SimNet &&
-			!cfg.Bitcoin.RegTest && !cfg.Litecoin.RegTest {
+		if !cfg.Bitcoin.SimNet && !cfg.Litecoinfinance.SimNet &&
+			!cfg.Bitcoin.RegTest && !cfg.Litecoinfinance.RegTest {
 
 			ltndLog.Infof("Initializing btcd backed fee estimator")
 
@@ -523,7 +523,7 @@ var (
 		0x68, 0xd6, 0x19, 0x00, 0x00, 0x00, 0x00, 0x00,
 	})
 
-	// litecoinTestnetGenesis is the genesis hash of Litecoin's testnet4
+	// litecoinTestnetGenesis is the genesis hash of Litecoinfinance's testnet4
 	// chain.
 	litecoinTestnetGenesis = chainhash.Hash([chainhash.HashSize]byte{
 		0xa0, 0x29, 0x3e, 0x4e, 0xeb, 0x3d, 0xa6, 0xe6,
@@ -532,7 +532,7 @@ var (
 		0xd9, 0x51, 0x28, 0x4b, 0x5a, 0x62, 0x66, 0x49,
 	})
 
-	// litecoinMainnetGenesis is the genesis hash of Litecoin's main chain.
+	// litecoinMainnetGenesis is the genesis hash of Litecoinfinance's main chain.
 	litecoinMainnetGenesis = chainhash.Hash([chainhash.HashSize]byte{
 		0xe2, 0xbf, 0x04, 0x7e, 0x7e, 0x5a, 0x19, 0x1a,
 		0xa4, 0xef, 0x34, 0xd3, 0x14, 0x97, 0x9d, 0xc9,
