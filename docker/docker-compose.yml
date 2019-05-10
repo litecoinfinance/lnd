@@ -32,13 +32,13 @@ services:
         entrypoint: ["./start-btcctl.sh"]
 
 
-    # ltc is an image of litecoinfinance node which used as base image for ltcd and
-    # ltcctl. The environment variables default values determined on stage of
+    # ltfn is an image of litecoinfinance node which used as base image for ltfnd and
+    # ltfnctl. The environment variables default values determined on stage of
     # container start within starting script.
-    ltc:
-      image: ltcd
+    ltfn:
+      image: ltfnd
       build:
-        context: ltcd/
+        context: ltfnd/
       volumes:
             - shared:/rpc
             - litecoinfinance:/data
@@ -47,20 +47,20 @@ services:
         - RPCPASS
         - NETWORK
 
-    ltcd:
-        extends: ltc
-        container_name: ltcd
+    ltfnd:
+        extends: ltfn
+        container_name: ltfnd
         environment:
           - DEBUG
           - MINING_ADDRESS
-        entrypoint: ["./start-ltcd.sh"]
+        entrypoint: ["./start-ltfnd.sh"]
 
-    ltcctl:
-        extends: ltc
-        container_name: ltcctl
+    ltfnctl:
+        extends: ltfn
+        container_name: ltfnctl
         links:
-            - "ltcd:rpcserver"
-        entrypoint: ["./start-ltcctl.sh"]
+            - "ltfnd:rpcserver"
+        entrypoint: ["./start-ltfnctl.sh"]
 
     lnd:
         image: lnd
@@ -77,11 +77,11 @@ services:
             - shared:/rpc
         entrypoint: ["./start-lnd.sh"]
 
-    lnd_ltc:
+    lnd_ltfn:
       extends: lnd
-      container_name: lnd_ltc
+      container_name: lnd_ltfn
       links:
-          - "ltcd:blockchain"
+          - "ltfnd:blockchain"
 
     lnd_btc:
       extends: lnd
@@ -101,6 +101,6 @@ volumes:
     driver: local
 
   # litecoinfinance volume is needed for maintaining blockchain persistence
-  # during ltcd container recreation.
+  # during ltfnd container recreation.
   litecoinfinance:
     driver: local

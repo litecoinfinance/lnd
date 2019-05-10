@@ -41,12 +41,12 @@ const (
 	minBtcRemoteDelay uint16 = 144
 	maxBtcRemoteDelay uint16 = 2016
 
-	// minLtcRemoteDelay and maxLtcRemoteDelay is the extremes of the
+	// minLtfnRemoteDelay and maxLtfnRemoteDelay is the extremes of the
 	// Litecoinfinance CSV delay we will require the remote to use for its
 	// commitment transaction. The actual delay we will require will be
 	// somewhere between these values, depending on channel size.
-	minLtcRemoteDelay uint16 = 576
-	maxLtcRemoteDelay uint16 = 8064
+	minLtfnRemoteDelay uint16 = 576
+	maxLtfnRemoteDelay uint16 = 8064
 
 	// maxWaitNumBlocksFundingConf is the maximum number of blocks to wait
 	// for the funding transaction to be confirmed before forgetting about
@@ -64,10 +64,10 @@ const (
 	// in the real world.
 	maxBtcFundingAmount = btcutil.Amount(1<<24) - 1
 
-	// maxLtcFundingAmount is a soft-limit of the maximum channel size
+	// maxLtfnFundingAmount is a soft-limit of the maximum channel size
 	// currently accepted on the Litecoinfinance chain within the Lightning
 	// Protocol.
-	maxLtcFundingAmount = maxBtcFundingAmount * btcToLtcConversionRate
+	maxLtfnFundingAmount = maxBtcFundingAmount * btcToLtfnConversionRate
 )
 
 var (
@@ -2726,8 +2726,8 @@ func (f *fundingManager) handleInitFundingMsg(msg *initFundingMsg) {
 	switch registeredChains.PrimaryChain() {
 	case bitcoinChain:
 		ourDustLimit = lnwallet.DefaultDustLimit()
-	case litecoinChain:
-		ourDustLimit = defaultLitecoinDustLimit
+	case litecoinfinanceChain:
+		ourDustLimit = defaultLitecoinfinanceDustLimit
 	}
 
 	fndgLog.Infof("Initiating fundingRequest(localAmt=%v, remoteAmt=%v, "+

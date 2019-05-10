@@ -192,7 +192,7 @@ func Main() error {
 	// light client instance, if enabled, in order to allow it to sync
 	// while the rest of the daemon continues startup.
 	mainChain := cfg.Bitcoin
-	if registeredChains.PrimaryChain() == litecoinChain {
+	if registeredChains.PrimaryChain() == litecoinfinanceChain {
 		mainChain = cfg.Litecoinfinance
 	}
 	var neutrinoCS *neutrino.ChainService
@@ -715,7 +715,7 @@ func waitForWalletPassword(grpcEndpoints, restEndpoints []net.Addr,
 	grpcServer := grpc.NewServer(serverOpts...)
 
 	chainConfig := cfg.Bitcoin
-	if registeredChains.PrimaryChain() == litecoinChain {
+	if registeredChains.PrimaryChain() == litecoinfinanceChain {
 		chainConfig = cfg.Litecoinfinance
 	}
 

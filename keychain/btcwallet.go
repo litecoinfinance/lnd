@@ -19,9 +19,9 @@ const (
 	// derivation.
 	CoinTypeTestnet = 1
 
-	// CoinTypeLitecoin specifies the BIP44 coin type for Litecoinfinance key
+	// CoinTypeLitecoinfinance specifies the BIP44 coin type for Litecoinfinance key
 	// derivation.
-	CoinTypeLitecoin = 2
+	CoinTypeLitecoinfinance = 2
 )
 
 var (

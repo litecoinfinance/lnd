@@ -46,7 +46,7 @@ NETWORK=$(set_default "$NETWORK" "simnet")
 CHAIN=$(set_default "$CHAIN" "bitcoin")
 BACKEND="btcd"
 if [[ "$CHAIN" == "litecoinfinance" ]]; then
-    BACKEND="ltcd"
+    BACKEND="ltfnd"
 fi
 
 exec lnd \

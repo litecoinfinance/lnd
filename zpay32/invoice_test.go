@@ -18,7 +18,7 @@ import (
 	"github.com/litecoinfinance/btcutil"
 	"github.com/litecoinfinance/lnd/lnwire"
 
-	litecoinCfg "github.com/litecoinfinance/ltcd/chaincfg"
+	litecoinfinanceCfg "github.com/litecoinfinance/ltfnd/chaincfg"
 )
 
 var (
@@ -94,8 +94,8 @@ var (
 	testPaymentHash     [32]byte
 	testDescriptionHash [32]byte
 
-	ltcTestNetParams chaincfg.Params
-	ltcMainNetParams chaincfg.Params
+	ltfnTestNetParams chaincfg.Params
+	ltfnMainNetParams chaincfg.Params
 )
 
 func init() {
@@ -105,12 +105,12 @@ func init() {
 	// Initialize litecoinfinance testnet and mainnet params by applying key fields
 	// to copies of bitcoin params.
 	// TODO(sangaman): create an interface for chaincfg.params
-	ltcTestNetParams = chaincfg.TestNet3Params
-	ltcTestNetParams.Net = wire.BitcoinNet(litecoinCfg.TestNet4Params.Net)
-	ltcTestNetParams.Bech32HRPSegwit = litecoinCfg.TestNet4Params.Bech32HRPSegwit
-	ltcMainNetParams = chaincfg.MainNetParams
-	ltcMainNetParams.Net = wire.BitcoinNet(litecoinCfg.MainNetParams.Net)
-	ltcMainNetParams.Bech32HRPSegwit = litecoinCfg.MainNetParams.Bech32HRPSegwit
+	ltfnTestNetParams = chaincfg.TestNet3Params
+	ltfnTestNetParams.Net = wire.BitcoinNet(litecoinfinanceCfg.TestNet4Params.Net)
+	ltfnTestNetParams.Bech32HRPSegwit = litecoinfinanceCfg.TestNet4Params.Bech32HRPSegwit
+	ltfnMainNetParams = chaincfg.MainNetParams
+	ltfnMainNetParams.Net = wire.BitcoinNet(litecoinfinanceCfg.MainNetParams.Net)
+	ltfnMainNetParams.Bech32HRPSegwit = litecoinfinanceCfg.MainNetParams.Bech32HRPSegwit
 }
 
 // TestDecodeEncode tests that an encoded invoice gets decoded into the expected

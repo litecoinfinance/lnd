@@ -39,23 +39,23 @@ const (
 	defaultBitcoinFeeRate       = lnwire.MilliSatoshi(1)
 	defaultBitcoinTimeLockDelta = 40
 
-	defaultLitecoinMinHTLCMSat   = lnwire.MilliSatoshi(1000)
-	defaultLitecoinBaseFeeMSat   = lnwire.MilliSatoshi(1000)
-	defaultLitecoinFeeRate       = lnwire.MilliSatoshi(1)
-	defaultLitecoinTimeLockDelta = 576
-	defaultLitecoinDustLimit     = btcutil.Amount(54600)
+	defaultLitecoinfinanceMinHTLCMSat   = lnwire.MilliSatoshi(1000)
+	defaultLitecoinfinanceBaseFeeMSat   = lnwire.MilliSatoshi(1000)
+	defaultLitecoinfinanceFeeRate       = lnwire.MilliSatoshi(1)
+	defaultLitecoinfinanceTimeLockDelta = 576
+	defaultLitecoinfinanceDustLimit     = btcutil.Amount(54600)
 
 	// defaultBitcoinStaticFeePerKW is the fee rate of 50 sat/vbyte
 	// expressed in sat/kw.
 	defaultBitcoinStaticFeePerKW = lnwallet.SatPerKWeight(12500)
 
-	// defaultLitecoinStaticFeePerKW is the fee rate of 200 sat/vbyte
+	// defaultLitecoinfinanceStaticFeePerKW is the fee rate of 200 sat/vbyte
 	// expressed in sat/kw.
-	defaultLitecoinStaticFeePerKW = lnwallet.SatPerKWeight(50000)
+	defaultLitecoinfinanceStaticFeePerKW = lnwallet.SatPerKWeight(50000)
 
-	// btcToLtcConversionRate is a fixed ratio used in order to scale up
+	// btcToLtfnConversionRate is a fixed ratio used in order to scale up
 	// payments when running on the Litecoinfinance chain.
-	btcToLtcConversionRate = 60
+	btcToLtfnConversionRate = 60
 )
 
 // defaultBtcChannelConstraints is the default set of channel constraints that are
@@ -67,10 +67,10 @@ var defaultBtcChannelConstraints = channeldb.ChannelConstraints{
 	MaxAcceptedHtlcs: input.MaxHTLCNumber / 2,
 }
 
-// defaultLtcChannelConstraints is the default set of channel constraints that are
+// defaultLtfnChannelConstraints is the default set of channel constraints that are
 // meant to be used when initially funding a Litecoinfinance channel.
-var defaultLtcChannelConstraints = channeldb.ChannelConstraints{
-	DustLimit:        defaultLitecoinDustLimit,
+var defaultLtfnChannelConstraints = channeldb.ChannelConstraints{
+	DustLimit:        defaultLitecoinfinanceDustLimit,
 	MaxAcceptedHtlcs: input.MaxHTLCNumber / 2,
 }
 
@@ -79,11 +79,11 @@ var defaultLtcChannelConstraints = channeldb.ChannelConstraints{
 type chainCode uint32
 
 const (
-	// bitcoinChain is Bitcoin's testnet chain.
+	// bitcoinfinanceChain is Bitcoin's testnet chain.
 	bitcoinChain chainCode = iota
 
-	// litecoinChain is Litecoinfinance's testnet chain.
-	litecoinChain
+	// litecoinfinanceChain is Litecoinfinance's testnet chain.
+	litecoinfinanceChain
 )
 
 // String returns a string representation of the target chainCode.
@@ -91,7 +91,7 @@ func (c chainCode) String() string {
 	switch c {
 	case bitcoinChain:
 		return "bitcoin"
-	case litecoinChain:
+	case litecoinfinanceChain:
 		return "litecoinfinance"
 	default:
 		return "kekcoin"
@@ -137,7 +137,7 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 	// Set the RPC config from the "home" chain. Multi-chain isn't yet
 	// active, so we'll restrict usage to a particular chain for now.
 	homeChainConfig := cfg.Bitcoin
-	if registeredChains.PrimaryChain() == litecoinChain {
+	if registeredChains.PrimaryChain() == litecoinfinanceChain {
 		homeChainConfig = cfg.Litecoinfinance
 	}
 	ltndLog.Infof("Primary chain is set to: %v",
@@ -156,7 +156,7 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 		cc.feeEstimator = lnwallet.NewStaticFeeEstimator(
 			defaultBitcoinStaticFeePerKW, 0,
 		)
-	case litecoinChain:
+	case litecoinfinanceChain:
 		cc.routingPolicy = htlcswitch.ForwardingPolicy{
 			MinHTLC:       cfg.Litecoinfinance.MinHTLC,
 			BaseFee:       cfg.Litecoinfinance.BaseFee,
@@ -164,7 +164,7 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 			TimeLockDelta: cfg.Litecoinfinance.TimeLockDelta,
 		}
 		cc.feeEstimator = lnwallet.NewStaticFeeEstimator(
-			defaultLitecoinStaticFeePerKW, 0,
+			defaultLitecoinfinanceStaticFeePerKW, 0,
 		)
 	default:
 		return nil, fmt.Errorf("Default routing policy for chain %v is "+
@@ -234,10 +234,10 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 		case cfg.Bitcoin.Active:
 			bitcoindMode = cfg.BitcoindMode
 		case cfg.Litecoinfinance.Active:
-			bitcoindMode = cfg.LitecoindMode
+			bitcoindMode = cfg.LitecoinfinancedMode
 		}
 		// Otherwise, we'll be speaking directly via RPC and ZMQ to a
-		// bitcoind node. If the specified host for the btcd/ltcd RPC
+		// bitcoind node. If the specified host for the btcd/ltfnd RPC
 		// server already has a port specified, then we use that
 		// directly. Otherwise, we assume the default port according to
 		// the selected chain parameters.
@@ -343,10 +343,10 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 				return nil, err
 			}
 		}
-	case "btcd", "ltcd":
+	case "btcd", "ltfnd":
 		// Otherwise, we'll be speaking directly via RPC to a node.
 		//
-		// So first we'll load btcd/ltcd's TLS cert for the RPC
+		// So first we'll load btcd/ltfnd's TLS cert for the RPC
 		// connection. If a raw cert was specified in the config, then
 		// we'll set that directly. Otherwise, we attempt to read the
 		// cert from the path specified in the config.
@@ -355,7 +355,7 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 		case cfg.Bitcoin.Active:
 			btcdMode = cfg.BtcdMode
 		case cfg.Litecoinfinance.Active:
-			btcdMode = cfg.LtcdMode
+			btcdMode = cfg.LtfndMode
 		}
 		var rpcCert []byte
 		if btcdMode.RawRPCCert != "" {
@@ -377,7 +377,7 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 			}
 		}
 
-		// If the specified host for the btcd/ltcd RPC server already
+		// If the specified host for the btcd/ltfnd RPC server already
 		// has a port specified, then we use that directly. Otherwise,
 		// we assume the default port according to the selected chain
 		// parameters.
@@ -466,8 +466,8 @@ func newChainControlFromConfig(cfg *config, chanDB *channeldb.DB,
 
 	// Select the default channel constraints for the primary chain.
 	channelConstraints := defaultBtcChannelConstraints
-	if registeredChains.PrimaryChain() == litecoinChain {
-		channelConstraints = defaultLtcChannelConstraints
+	if registeredChains.PrimaryChain() == litecoinfinanceChain {
+		channelConstraints = defaultLtfnChannelConstraints
 	}
 
 	keyRing := keychain.NewBtcWalletKeyRing(
@@ -523,17 +523,17 @@ var (
 		0x68, 0xd6, 0x19, 0x00, 0x00, 0x00, 0x00, 0x00,
 	})
 
-	// litecoinTestnetGenesis is the genesis hash of Litecoinfinance's testnet4
+	// litecoinfinanceTestnetGenesis is the genesis hash of Litecoinfinance's testnet4
 	// chain.
-	litecoinTestnetGenesis = chainhash.Hash([chainhash.HashSize]byte{
+	litecoinfinanceTestnetGenesis = chainhash.Hash([chainhash.HashSize]byte{
 		0xa0, 0x29, 0x3e, 0x4e, 0xeb, 0x3d, 0xa6, 0xe6,
 		0xf5, 0x6f, 0x81, 0xed, 0x59, 0x5f, 0x57, 0x88,
 		0x0d, 0x1a, 0x21, 0x56, 0x9e, 0x13, 0xee, 0xfd,
 		0xd9, 0x51, 0x28, 0x4b, 0x5a, 0x62, 0x66, 0x49,
 	})
 
-	// litecoinMainnetGenesis is the genesis hash of Litecoinfinance's main chain.
-	litecoinMainnetGenesis = chainhash.Hash([chainhash.HashSize]byte{
+	// litecoinfinanceMainnetGenesis is the genesis hash of Litecoinfinance's main chain.
+	litecoinfinanceMainnetGenesis = chainhash.Hash([chainhash.HashSize]byte{
 		0xe2, 0xbf, 0x04, 0x7e, 0x7e, 0x5a, 0x19, 0x1a,
 		0xa4, 0xef, 0x34, 0xd3, 0x14, 0x97, 0x9d, 0xc9,
 		0x98, 0x6e, 0x0f, 0x19, 0x25, 0x1e, 0xda, 0xba,
@@ -544,10 +544,10 @@ var (
 	// chainCode enum for that chain.
 	chainMap = map[chainhash.Hash]chainCode{
 		bitcoinTestnetGenesis:  bitcoinChain,
-		litecoinTestnetGenesis: litecoinChain,
+		litecoinfinanceTestnetGenesis: litecoinfinanceChain,
 
 		bitcoinMainnetGenesis:  bitcoinChain,
-		litecoinMainnetGenesis: litecoinChain,
+		litecoinfinanceMainnetGenesis: litecoinfinanceChain,
 	}
 
 	// chainDNSSeeds is a map of a chain's hash to the set of DNS seeds
@@ -577,7 +577,7 @@ var (
 			},
 		},
 
-		litecoinMainnetGenesis: {
+		litecoinfinanceMainnetGenesis: {
 			{
 				"ltc.nodes.ltfnd.info",
 				"soa.nodes.ltfnd.info",

@@ -61,10 +61,10 @@ const (
 	// permitted as defined in BOLT-0002.
 	maxBtcPaymentMSat = lnwire.MilliSatoshi(math.MaxUint32)
 
-	// maxLtcPaymentMSat is the maximum allowed Litecoinfinance payment currently
+	// maxLtfnPaymentMSat is the maximum allowed Litecoinfinance payment currently
 	// permitted.
-	maxLtcPaymentMSat = lnwire.MilliSatoshi(math.MaxUint32) *
-		btcToLtcConversionRate
+	maxLtfnPaymentMSat = lnwire.MilliSatoshi(math.MaxUint32) *
+		btcToLtfnConversionRate
 )
 
 var (
@@ -3390,7 +3390,7 @@ func (r *rpcServer) AddInvoice(ctx context.Context,
 	invoice *lnrpc.Invoice) (*lnrpc.AddInvoiceResponse, error) {
 
 	defaultDelta := cfg.Bitcoin.TimeLockDelta
-	if registeredChains.PrimaryChain() == litecoinChain {
+	if registeredChains.PrimaryChain() == litecoinfinanceChain {
 		defaultDelta = cfg.Litecoinfinance.TimeLockDelta
 	}
 

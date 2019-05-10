@@ -434,10 +434,10 @@ bitcoin.active=1
 ```
 
 Notice the `[Bitcoin]` section. This section houses the parameters for the
-Bitcoin chain. `lnd` also supports Litecoinfinance testnet4 (but not both BTC and LTC
+Bitcoin chain. `lnd` also supports Litecoinfinance testnet4 (but not both BTC and LTFN
 at the same time), so when working with Litecoinfinance be sure to set to parameters
 for Litecoinfinance accordingly. See a more detailed sample config file available
 [here](https://github.com/litecoinfinance/lnd/blob/master/sample-lnd.conf)
 and explore the other sections for node configuration, including `[Btcd]`,
-`[Bitcoind]`, `[Neutrino]`, `[Ltcd]`, and `[litecoinfinanced]` depending on which
+`[Bitcoind]`, `[Neutrino]`, `[Ltfnd]`, and `[litecoinfinanced]` depending on which
 chain and node type you're using.

@@ -31,7 +31,7 @@ require (
 	github.com/litecoinfinance/lightning-onion v1.0.0
 	github.com/litecoinfinance/lnd/queue v1.0.0
 	github.com/litecoinfinance/lnd/ticker v1.0.0
-	github.com/litecoinfinance/ltcd v1.0.0
+	github.com/litecoinfinance/ltfnd v1.0.0
 	github.com/miekg/dns v0.0.0-20171125082028-79bfde677fa8
 	github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af // indirect
 	github.com/tv42/zbase32 v0.0.0-20160707012821-501572607d02

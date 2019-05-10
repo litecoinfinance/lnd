@@ -852,10 +852,10 @@ func newServer(listenAddrs []net.Addr, chanDB *channeldb.DB, cc *chainControl,
 	chainCfg := cfg.Bitcoin
 	minRemoteDelay := minBtcRemoteDelay
 	maxRemoteDelay := maxBtcRemoteDelay
-	if primaryChain == litecoinChain {
+	if primaryChain == litecoinfinanceChain {
 		chainCfg = cfg.Litecoinfinance
-		minRemoteDelay = minLtcRemoteDelay
-		maxRemoteDelay = maxLtcRemoteDelay
+		minRemoteDelay = minLtfnRemoteDelay
+		maxRemoteDelay = maxLtfnRemoteDelay
 	}
 
 	var chanIDSeed [32]byte
@@ -918,7 +918,7 @@ func newServer(listenAddrs []net.Addr, chanDB *channeldb.DB, cc *chainControl,
 			// we will require more confirmations before
 			// we consider it open.
 			// TODO(halseth): Use Litecoinfinance params in case
-			// of LTC channels.
+			// of LTFN channels.
 
 			// In case the user has explicitly specified
 			// a default value for the number of
@@ -951,7 +951,7 @@ func newServer(listenAddrs []net.Addr, chanDB *channeldb.DB, cc *chainControl,
 			// close) linearly from minRemoteDelay blocks
 			// for small channels, to maxRemoteDelay blocks
 			// for channels of size maxFundingAmount.
-			// TODO(halseth): Litecoinfinance parameter for LTC.
+			// TODO(halseth): Litecoinfinance parameter for LTFN.
 
 			// In case the user has explicitly specified
 			// a default value for the remote delay, we

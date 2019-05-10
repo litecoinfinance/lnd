@@ -133,11 +133,11 @@ var (
 	defaultBtcdDir         = btcutil.AppDataDir("btcd", false)
 	defaultBtcdRPCCertFile = filepath.Join(defaultBtcdDir, "rpc.cert")
 
-	defaultLtcdDir         = btcutil.AppDataDir("ltcd", false)
-	defaultLtcdRPCCertFile = filepath.Join(defaultLtcdDir, "rpc.cert")
+	defaultLtfndDir         = btcutil.AppDataDir("ltfnd", false)
+	defaultLtfndRPCCertFile = filepath.Join(defaultLtfndDir, "rpc.cert")
 
 	defaultBitcoindDir  = btcutil.AppDataDir("bitcoin", false)
-	defaultLitecoindDir = btcutil.AppDataDir("litecoinfinance", false)
+	defaultLitecoinfinancedDir = btcutil.AppDataDir("litecoinfinance", false)
 
 	defaultTorSOCKS   = net.JoinHostPort("localhost", strconv.Itoa(defaultTorSOCKSPort))
 	defaultTorDNS     = net.JoinHostPort(defaultTorDNSHost, strconv.Itoa(defaultTorDNSPort))
@@ -148,7 +148,7 @@ type chainConfig struct {
 	Active   bool   `long:"active" description:"If the chain should be active or not."`
 	ChainDir string `long:"chaindir" description:"The directory to store the chain's data within."`
 
-	Node string `long:"node" description:"The blockchain interface to use." choice:"btcd" choice:"bitcoind" choice:"neutrino" choice:"ltcd" choice:"litecoinfinanced"`
+	Node string `long:"node" description:"The blockchain interface to use." choice:"btcd" choice:"bitcoind" choice:"neutrino" choice:"ltfnd" choice:"litecoinfinanced"`
 
 	MainNet  bool `long:"mainnet" description:"Use the main network"`
 	TestNet3 bool `long:"testnet" description:"Use the test network"`
@@ -269,8 +269,8 @@ type config struct {
 	NeutrinoMode *neutrinoConfig `group:"neutrino" namespace:"neutrino"`
 
 	Litecoinfinance      *chainConfig    `group:"Litecoinfinance" namespace:"litecoinfinance"`
-	LtcdMode      *btcdConfig     `group:"ltcd" namespace:"ltcd"`
-	LitecoindMode *bitcoindConfig `group:"litecoinfinanced" namespace:"litecoinfinanced"`
+	LtfndMode      *btcdConfig     `group:"ltfnd" namespace:"ltfnd"`
+	LitecoinfinancedMode *bitcoindConfig `group:"litecoinfinanced" namespace:"litecoinfinanced"`
 
 	Autopilot *autoPilotConfig `group:"Autopilot" namespace:"autopilot"`
 
@@ -345,19 +345,19 @@ func loadConfig() (*config, error) {
 			RPCHost: defaultRPCHost,
 		},
 		Litecoinfinance: &chainConfig{
-			MinHTLC:       defaultLitecoinMinHTLCMSat,
-			BaseFee:       defaultLitecoinBaseFeeMSat,
-			FeeRate:       defaultLitecoinFeeRate,
-			TimeLockDelta: defaultLitecoinTimeLockDelta,
-			Node:          "ltcd",
+			MinHTLC:       defaultLitecoinfinanceMinHTLCMSat,
+			BaseFee:       defaultLitecoinfinanceBaseFeeMSat,
+			FeeRate:       defaultLitecoinfinanceFeeRate,
+			TimeLockDelta: defaultLitecoinfinanceTimeLockDelta,
+			Node:          "ltfnd",
 		},
-		LtcdMode: &btcdConfig{
-			Dir:     defaultLtcdDir,
+		LtfndMode: &btcdConfig{
+			Dir:     defaultLtfndDir,
 			RPCHost: defaultRPCHost,
-			RPCCert: defaultLtcdRPCCertFile,
+			RPCCert: defaultLtfndRPCCertFile,
 		},
-		LitecoindMode: &bitcoindConfig{
-			Dir:     defaultLitecoindDir,
+		LitecoinfinancedMode: &bitcoindConfig{
+			Dir:     defaultLitecoinfinancedDir,
 			RPCHost: defaultRPCHost,
 		},
 		MaxPendingChannels: defaultMaxPendingChannels,
@@ -492,9 +492,9 @@ func loadConfig() (*config, error) {
 	cfg.InvoiceMacPath = cleanAndExpandPath(cfg.InvoiceMacPath)
 	cfg.LogDir = cleanAndExpandPath(cfg.LogDir)
 	cfg.BtcdMode.Dir = cleanAndExpandPath(cfg.BtcdMode.Dir)
-	cfg.LtcdMode.Dir = cleanAndExpandPath(cfg.LtcdMode.Dir)
+	cfg.LtfndMode.Dir = cleanAndExpandPath(cfg.LtfndMode.Dir)
 	cfg.BitcoindMode.Dir = cleanAndExpandPath(cfg.BitcoindMode.Dir)
-	cfg.LitecoindMode.Dir = cleanAndExpandPath(cfg.LitecoindMode.Dir)
+	cfg.LitecoinfinancedMode.Dir = cleanAndExpandPath(cfg.LitecoinfinancedMode.Dir)
 	cfg.Tor.PrivateKeyPath = cleanAndExpandPath(cfg.Tor.PrivateKeyPath)
 
 	// Ensure that the user didn't attempt to specify negative values for
@@ -638,22 +638,22 @@ func loadConfig() (*config, error) {
 		// number of network flags passed; assign active network params
 		// while we're at it.
 		numNets := 0
-		var ltcParams litecoinNetParams
+		var ltfnParams litecoinfinanceNetParams
 		if cfg.Litecoinfinance.MainNet {
 			numNets++
-			ltcParams = litecoinMainNetParams
+			ltfnParams = litecoinfinanceMainNetParams
 		}
 		if cfg.Litecoinfinance.TestNet3 {
 			numNets++
-			ltcParams = litecoinTestNetParams
+			ltfnParams = litecoinfinanceTestNetParams
 		}
 		if cfg.Litecoinfinance.RegTest {
 			numNets++
-			ltcParams = litecoinRegTestNetParams
+			ltfnParams = litecoinfinanceRegTestNetParams
 		}
 		if cfg.Litecoinfinance.SimNet {
 			numNets++
-			ltcParams = litecoinSimNetParams
+			ltfnParams = litecoinfinanceSimNetParams
 		}
 
 		if numNets > 1 {
@@ -684,15 +684,15 @@ func loadConfig() (*config, error) {
 		// throughout the codebase we required chaincfg.Params. So as a
 		// temporary hack, we'll mutate the default net params for
 		// bitcoin with the litecoinfinance specific information.
-		applyLitecoinParams(&activeNetParams, &ltcParams)
+		applyLitecoinfinanceParams(&activeNetParams, &ltfnParams)
 
 		switch cfg.Litecoinfinance.Node {
-		case "ltcd":
-			err := parseRPCParams(cfg.Litecoinfinance, cfg.LtcdMode,
-				litecoinChain, funcName)
+		case "ltfnd":
+			err := parseRPCParams(cfg.Litecoinfinance, cfg.LtfndMode,
+				litecoinfinanceChain, funcName)
 			if err != nil {
 				err := fmt.Errorf("unable to load RPC "+
-					"credentials for ltcd: %v", err)
+					"credentials for ltfnd: %v", err)
 				return nil, err
 			}
 		case "litecoinfinanced":
@@ -700,28 +700,28 @@ func loadConfig() (*config, error) {
 				return nil, fmt.Errorf("%s: litecoinfinanced does not "+
 					"support simnet", funcName)
 			}
-			err := parseRPCParams(cfg.Litecoinfinance, cfg.LitecoindMode,
-				litecoinChain, funcName)
+			err := parseRPCParams(cfg.Litecoinfinance, cfg.LitecoinfinancedMode,
+				litecoinfinanceChain, funcName)
 			if err != nil {
 				err := fmt.Errorf("unable to load RPC "+
 					"credentials for litecoinfinanced: %v", err)
 				return nil, err
 			}
 		default:
-			str := "%s: only ltcd and litecoinfinanced mode supported for " +
+			str := "%s: only ltfnd and litecoinfinanced mode supported for " +
 				"litecoinfinance at this time"
 			return nil, fmt.Errorf(str, funcName)
 		}
 
 		cfg.Litecoinfinance.ChainDir = filepath.Join(cfg.DataDir,
 			defaultChainSubDirname,
-			litecoinChain.String())
+			litecoinfinanceChain.String())
 
 		// Finally we'll register the litecoinfinance chain as our current
 		// primary chain.
-		registeredChains.RegisterPrimaryChain(litecoinChain)
-		maxFundingAmount = maxLtcFundingAmount
-		maxPaymentMSat = maxLtcPaymentMSat
+		registeredChains.RegisterPrimaryChain(litecoinfinanceChain)
+		maxFundingAmount = maxLtfnFundingAmount
+		maxPaymentMSat = maxLtfnPaymentMSat
 
 	case cfg.Bitcoin.Active:
 		// Multiple networks can't be selected simultaneously.  Count
@@ -1201,10 +1201,10 @@ func parseRPCParams(cConfig *chainConfig, nodeConfig interface{}, net chainCode,
 			daemonName = "btcd"
 			confDir = conf.Dir
 			confFile = "btcd"
-		case litecoinChain:
-			daemonName = "ltcd"
+		case litecoinfinanceChain:
+			daemonName = "ltfnd"
 			confDir = conf.Dir
-			confFile = "ltcd"
+			confFile = "ltfnd"
 		}
 
 		// If only ONE of RPCUser or RPCPass is set, we assume the
@@ -1239,7 +1239,7 @@ func parseRPCParams(cConfig *chainConfig, nodeConfig interface{}, net chainCode,
 			daemonName = "bitcoind"
 			confDir = conf.Dir
 			confFile = "bitcoin"
-		case litecoinChain:
+		case litecoinfinanceChain:
 			daemonName = "litecoinfinanced"
 			confDir = conf.Dir
 			confFile = "litecoinfinance"
@@ -1270,7 +1270,7 @@ func parseRPCParams(cConfig *chainConfig, nodeConfig interface{}, net chainCode,
 
 	confFile = filepath.Join(confDir, fmt.Sprintf("%v.conf", confFile))
 	switch cConfig.Node {
-	case "btcd", "ltcd":
+	case "btcd", "ltfnd":
 		nConf := nodeConfig.(*btcdConfig)
 		rpcUser, rpcPass, err := extractBtcdRPCParams(confFile)
 		if err != nil {

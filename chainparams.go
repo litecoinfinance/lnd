@@ -6,8 +6,8 @@ import (
 	"github.com/litecoinfinance/btcd/chaincfg/chainhash"
 	bitcoinWire "github.com/litecoinfinance/btcd/wire"
 	"github.com/litecoinfinance/lnd/keychain"
-	litecoinCfg "github.com/litecoinfinance/ltcd/chaincfg"
-	litecoinWire "github.com/litecoinfinance/ltcd/wire"
+	litecoinfinanceCfg "github.com/litecoinfinance/ltfnd/chaincfg"
+	litecoinfinanceWire "github.com/litecoinfinance/ltfnd/wire"
 )
 
 // activeNetParams is a pointer to the parameters specific to the currently
@@ -22,10 +22,10 @@ type bitcoinNetParams struct {
 	CoinType uint32
 }
 
-// litecoinNetParams couples the p2p parameters of a network with the
+// litecoinfinanceNetParams couples the p2p parameters of a network with the
 // corresponding RPC port of a daemon running on the particular network.
-type litecoinNetParams struct {
-	*litecoinCfg.Params
+type litecoinfinanceNetParams struct {
+	*litecoinfinanceCfg.Params
 	rpcPort  string
 	CoinType uint32
 }
@@ -54,34 +54,34 @@ var bitcoinSimNetParams = bitcoinNetParams{
 	CoinType: keychain.CoinTypeTestnet,
 }
 
-// litecoinSimNetParams contains parameters specific to the simulation test
+// litecoinfinanceSimNetParams contains parameters specific to the simulation test
 // network.
-var litecoinSimNetParams = litecoinNetParams{
-	Params:   &litecoinCfg.SimNetParams,
+var litecoinfinanceSimNetParams = litecoinfinanceNetParams{
+	Params:   &litecoinfinanceCfg.SimNetParams,
 	rpcPort:  "18556",
 	CoinType: keychain.CoinTypeTestnet,
 }
 
-// litecoinTestNetParams contains parameters specific to the 4th version of the
+// litecoinfinanceTestNetParams contains parameters specific to the 4th version of the
 // test network.
-var litecoinTestNetParams = litecoinNetParams{
-	Params:   &litecoinCfg.TestNet4Params,
+var litecoinfinanceTestNetParams = litecoinfinanceNetParams{
+	Params:   &litecoinfinanceCfg.TestNet4Params,
 	rpcPort:  "19334",
 	CoinType: keychain.CoinTypeTestnet,
 }
 
-// litecoinMainNetParams contains the parameters specific to the current
+// litecoinfinanceMainNetParams contains the parameters specific to the current
 // Litecoinfinance mainnet.
-var litecoinMainNetParams = litecoinNetParams{
-	Params:   &litecoinCfg.MainNetParams,
+var litecoinfinanceMainNetParams = litecoinfinanceNetParams{
+	Params:   &litecoinfinanceCfg.MainNetParams,
 	rpcPort:  "39329",
-	CoinType: keychain.CoinTypeLitecoin,
+	CoinType: keychain.CoinTypeLitecoinfinance,
 }
 
-// litecoinRegTestNetParams contains parameters specific to a local litecoinfinance
+// litecoinfinanceRegTestNetParams contains parameters specific to a local litecoinfinance
 // regtest network.
-var litecoinRegTestNetParams = litecoinNetParams{
-	Params:   &litecoinCfg.RegressionNetParams,
+var litecoinfinanceRegTestNetParams = litecoinfinanceNetParams{
+	Params:   &litecoinfinanceCfg.RegressionNetParams,
 	rpcPort:  "18334",
 	CoinType: keychain.CoinTypeTestnet,
 }
@@ -94,52 +94,52 @@ var bitcoinRegTestNetParams = bitcoinNetParams{
 	CoinType: keychain.CoinTypeTestnet,
 }
 
-// applyLitecoinParams applies the relevant chain configuration parameters that
+// applyLitecoinfinanceParams applies the relevant chain configuration parameters that
 // differ for litecoinfinance to the chain parameters typed for btcsuite derivation.
 // This function is used in place of using something like interface{} to
 // abstract over _which_ chain (or fork) the parameters are for.
-func applyLitecoinParams(params *bitcoinNetParams, litecoinParams *litecoinNetParams) {
-	params.Name = litecoinParams.Name
-	params.Net = bitcoinWire.BitcoinNet(litecoinParams.Net)
-	params.DefaultPort = litecoinParams.DefaultPort
-	params.CoinbaseMaturity = litecoinParams.CoinbaseMaturity
+func applyLitecoinfinanceParams(params *bitcoinNetParams, litecoinfinanceParams *litecoinfinanceNetParams) {
+	params.Name = litecoinfinanceParams.Name
+	params.Net = bitcoinWire.BitcoinNet(litecoinfinanceParams.Net)
+	params.DefaultPort = litecoinfinanceParams.DefaultPort
+	params.CoinbaseMaturity = litecoinfinanceParams.CoinbaseMaturity
 
-	copy(params.GenesisHash[:], litecoinParams.GenesisHash[:])
+	copy(params.GenesisHash[:], litecoinfinanceParams.GenesisHash[:])
 
 	// Address encoding magics
-	params.PubKeyHashAddrID = litecoinParams.PubKeyHashAddrID
-	params.ScriptHashAddrID = litecoinParams.ScriptHashAddrID
-	params.PrivateKeyID = litecoinParams.PrivateKeyID
-	params.WitnessPubKeyHashAddrID = litecoinParams.WitnessPubKeyHashAddrID
-	params.WitnessScriptHashAddrID = litecoinParams.WitnessScriptHashAddrID
-	params.Bech32HRPSegwit = litecoinParams.Bech32HRPSegwit
+	params.PubKeyHashAddrID = litecoinfinanceParams.PubKeyHashAddrID
+	params.ScriptHashAddrID = litecoinfinanceParams.ScriptHashAddrID
+	params.PrivateKeyID = litecoinfinanceParams.PrivateKeyID
+	params.WitnessPubKeyHashAddrID = litecoinfinanceParams.WitnessPubKeyHashAddrID
+	params.WitnessScriptHashAddrID = litecoinfinanceParams.WitnessScriptHashAddrID
+	params.Bech32HRPSegwit = litecoinfinanceParams.Bech32HRPSegwit
 
-	copy(params.HDPrivateKeyID[:], litecoinParams.HDPrivateKeyID[:])
-	copy(params.HDPublicKeyID[:], litecoinParams.HDPublicKeyID[:])
+	copy(params.HDPrivateKeyID[:], litecoinfinanceParams.HDPrivateKeyID[:])
+	copy(params.HDPublicKeyID[:], litecoinfinanceParams.HDPublicKeyID[:])
 
-	params.HDCoinType = litecoinParams.HDCoinType
+	params.HDCoinType = litecoinfinanceParams.HDCoinType
 
-	checkPoints := make([]chaincfg.Checkpoint, len(litecoinParams.Checkpoints))
-	for i := 0; i < len(litecoinParams.Checkpoints); i++ {
+	checkPoints := make([]chaincfg.Checkpoint, len(litecoinfinanceParams.Checkpoints))
+	for i := 0; i < len(litecoinfinanceParams.Checkpoints); i++ {
 		var chainHash chainhash.Hash
-		copy(chainHash[:], litecoinParams.Checkpoints[i].Hash[:])
+		copy(chainHash[:], litecoinfinanceParams.Checkpoints[i].Hash[:])
 
 		checkPoints[i] = chaincfg.Checkpoint{
-			Height: litecoinParams.Checkpoints[i].Height,
+			Height: litecoinfinanceParams.Checkpoints[i].Height,
 			Hash:   &chainHash,
 		}
 	}
 	params.Checkpoints = checkPoints
 
-	params.rpcPort = litecoinParams.rpcPort
-	params.CoinType = litecoinParams.CoinType
+	params.rpcPort = litecoinfinanceParams.rpcPort
+	params.CoinType = litecoinfinanceParams.CoinType
 }
 
 // isTestnet tests if the given params correspond to a testnet
 // parameter configuration.
 func isTestnet(params *bitcoinNetParams) bool {
 	switch params.Params.Net {
-	case bitcoinWire.TestNet3, bitcoinWire.BitcoinNet(litecoinWire.TestNet4):
+	case bitcoinWire.TestNet3, bitcoinWire.BitcoinNet(litecoinfinanceWire.TestNet4):
 		return true
 	default:
 		return false
