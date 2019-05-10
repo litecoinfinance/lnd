@@ -579,7 +579,7 @@ var (
 
 		litecoinfinanceMainnetGenesis: {
 			{
-				"ltc.nodes.ltfnd.info",
+				"ltfn.nodes.ltfnd.info",
 				"soa.nodes.ltfnd.info",
 			},
 		},
