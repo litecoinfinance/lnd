@@ -1,4 +1,4 @@
-To use Litecoin ligthning network, you need 
+To use Litecoin Finance ligthning network, you need 
 
 https://github.com/litecoinfinance/lnd - Lightning Network Daemon
 
