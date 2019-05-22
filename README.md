@@ -2,10 +2,13 @@
 
 [![Build Status](https://img.shields.io/travis/litecoinfinance/lnd.svg)](https://travis-ci.org/litecoinfinance/lnd)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/litecoinfinance/lnd/blob/master/LICENSE)
-[![Irc](https://img.shields.io/badge/chat-on%20freenode-brightgreen.svg)](https://webchat.freenode.net/?channels=lnd)
 [![Godoc](https://godoc.org/github.com/litecoinfinance/lnd?status.svg)](https://godoc.org/github.com/litecoinfinance/lnd)
 
 <img src="logo.png">
+
+
+* [Fast Setup Litecoin Finance ligthning network](https://github.com/litecoinfinance/lnd/blob/master/docs/Fast_Setup.md)
+
 
 The Lightning Network Daemon (`lnd`) - is a complete implementation of a
 [Lightning Network](https://lightning.network) node.  `lnd` has several pluggable back-end
@@ -45,45 +48,11 @@ said, the current status of `lnd`'s BOLT compliance is:
   - [X] BOLT 10: DNS Bootstrap and Assisted Node Location
   - [X] BOLT 11: Invoice Protocol for Lightning Payments
 
-## Developer Resources
-
-The daemon has been designed to be as developer friendly as possible in order
-to facilitate application development on top of `lnd`. Two primary RPC
-interfaces are exported: an HTTP REST API, and a [gRPC](https://grpc.io/)
-service. The exported API's are not yet stable, so be warned: they may change
-drastically in the near future.
-
-An automatically generated set of documentation for the RPC APIs can be found
-at [api.lightning.community](https://api.lightning.community). A set of developer
-resources including talks, articles, and example applications can be found at:
-[dev.lightning.community](https://dev.lightning.community).
-
-Finally, we also have an active
-[Slack](https://join.slack.com/t/lightningcommunity/shared_invite/enQtMzQ0OTQyNjE5NjU1LWRiMGNmOTZiNzU0MTVmYzc1ZGFkZTUyNzUwOGJjMjYwNWRkNWQzZWE3MTkwZjdjZGE5ZGNiNGVkMzI2MDU4ZTE) where protocol developers, application developers, testers and users gather to
-discuss various aspects of `lnd` and also Lightning in general.
 
 ## Installation
   In order to build from source, please see [the installation
   instructions](docs/INSTALL.md).
 
-## Docker
-  To run lnd from Docker, please see the main [Docker instructions](docs/DOCKER.md)
-  
-## IRC
-  * irc.freenode.net
-  * channel #lnd
-  * [webchat](https://webchat.freenode.net/?channels=lnd)
-
-## Security
-
-The developers of `lnd` take security _very_ seriously. The disclosure of
-security vulnerabilities helps us secure the health of `lnd`, privacy of our
-users, and also the health of the Lightning Network as a whole.  If you find
-any issues regarding security or privacy, please disclose the information
-responsibly by sending an email to security at lightning dot engineering,
-preferably [encrypted using our designated PGP key
-(`91FE464CD75101DA6B6BAB60555C6465E5BCB3AF`) which can be found
-here](https://pgp.mit.edu/pks/lookup?op=vindex&search=0x555C6465E5BCB3AF).
 
 ## Further reading
 * [Step-by-step send payment guide with docker](https://github.com/litecoinfinance/lnd/tree/master/docker)
